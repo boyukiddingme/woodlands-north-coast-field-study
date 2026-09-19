@@ -749,3 +749,137 @@ html.results-v6-ready #tenant-evidence {
   display: none !important;
 }
 
+
+/* ============================================================
+   V10 — SELF-CONTAINED EVIDENCE CURSOR
+   ============================================================ */
+
+#v6-evidence-cursor {
+  position: fixed;
+
+  z-index: 2147483000;
+
+  left: 0;
+  top: 0;
+
+  width: 8.3rem;
+  height: 8.3rem;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 1rem;
+
+  color: white;
+
+  background:
+    rgba(17,19,15,.93);
+
+  border:
+    1px solid
+    rgba(200,255,61,.48);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 12px 35px
+    rgba(0,0,0,.18);
+
+  backdrop-filter:
+    blur(7px);
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transform:
+    translate3d(-50%,-50%,0)
+    scale(.78);
+
+  transition:
+    opacity .16s ease,
+    transform .20s cubic-bezier(.2,.8,.2,1),
+    visibility 0s linear .16s;
+
+  pointer-events: none;
+
+  text-align: center;
+
+  font:
+    .68rem/1.45
+    "DM Mono",
+    monospace;
+
+  letter-spacing:
+    .055em;
+
+  text-transform: uppercase;
+}
+
+
+#v6-evidence-cursor.visible {
+  opacity: 1;
+
+  visibility: visible;
+
+  transform:
+    translate3d(-50%,-50%,0)
+    scale(1);
+
+  transition:
+    opacity .16s ease,
+    transform .20s cubic-bezier(.2,.8,.2,1),
+    visibility 0s;
+}
+
+
+#v6-evidence-cursor .v6-cursor-title {
+  display: block;
+
+  max-width: 8.5ch;
+
+  color: white;
+}
+
+
+#v6-evidence-cursor .v6-cursor-action {
+  display: block;
+
+  margin-top: .42rem;
+
+  color: #c8ff3d;
+
+  font-size: .60rem;
+
+  letter-spacing: .08em;
+}
+
+
+/* V6 replaces native pointer with the circular cursor */
+
+@media (hover:hover) and (pointer:fine) {
+
+  .v6-media {
+    cursor: none !important;
+  }
+
+}
+
+
+/* Touch devices should retain normal interaction */
+
+@media (hover:none), (pointer:coarse) {
+
+  #v6-evidence-cursor {
+    display: none !important;
+  }
+
+
+  .v6-media {
+    cursor: pointer !important;
+  }
+
+}
+

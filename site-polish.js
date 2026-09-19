@@ -1369,7 +1369,11 @@
             const updateRain =
               setupRainProcess();
 
-            setupEditorialRows();
+            /*
+               Daily Systems are rendered by Results V6.
+               The old editorial-row transformer is deliberately
+               no longer executed.
+            */
 
             const updateChart =
               setupChart();

@@ -1264,3 +1264,207 @@
   }
 
 })();
+
+
+/* ============================================================
+   V10 — SELF-CONTAINED V6 EVIDENCE CURSOR
+   ============================================================ */
+
+(() => {
+  "use strict";
+
+
+  function getCursor() {
+
+    let cursor =
+      document.getElementById(
+        "v6-evidence-cursor"
+      );
+
+
+    if (cursor) {
+      return cursor;
+    }
+
+
+    cursor =
+      document.createElement(
+        "div"
+      );
+
+
+    cursor.id =
+      "v6-evidence-cursor";
+
+
+    cursor.setAttribute(
+      "aria-hidden",
+      "true"
+    );
+
+
+    cursor.innerHTML = `
+      <div>
+        <span class="v6-cursor-title">
+          Field evidence
+        </span>
+
+        <span class="v6-cursor-action">
+          Open evidence
+        </span>
+      </div>
+    `;
+
+
+    document.body.appendChild(
+      cursor
+    );
+
+
+    return cursor;
+  }
+
+
+
+  function mediaTitle(
+    media
+  ) {
+
+    return (
+      media
+        .querySelector(
+          ".v6-media-caption strong"
+        )
+        ?.textContent
+        ?.trim()
+      ||
+      media
+        .getAttribute(
+          "aria-label"
+        )
+        ?.replace(
+          /\s*—\s*Open evidence\s*$/i,
+          ""
+        )
+        ?.trim()
+      ||
+      "Field evidence"
+    );
+
+  }
+
+
+
+  const cursor =
+    getCursor();
+
+
+  const titleNode =
+    cursor.querySelector(
+      ".v6-cursor-title"
+    );
+
+
+
+  document.addEventListener(
+    "pointermove",
+    event => {
+
+      const media =
+        event.target.closest(
+          ".v6-media"
+        );
+
+
+      if (!media) {
+
+        cursor.classList.remove(
+          "visible"
+        );
+
+        return;
+      }
+
+
+      cursor.style.left =
+        `${event.clientX}px`;
+
+
+      cursor.style.top =
+        `${event.clientY}px`;
+
+
+      titleNode.textContent =
+        mediaTitle(
+          media
+        );
+
+
+      cursor.classList.add(
+        "visible"
+      );
+
+    },
+    {
+      passive: true
+    }
+  );
+
+
+
+  document.addEventListener(
+    "pointerleave",
+    () => {
+
+      cursor.classList.remove(
+        "visible"
+      );
+
+    }
+  );
+
+
+
+  document.addEventListener(
+    "pointerdown",
+    event => {
+
+      if (
+        event.target.closest(
+          ".v6-media"
+        )
+      ) {
+
+        cursor.style.transform =
+          "translate3d(-50%,-50%,0) scale(.9)";
+
+      }
+
+    },
+    {
+      passive: true
+    }
+  );
+
+
+
+  document.addEventListener(
+    "pointerup",
+    () => {
+
+      cursor.style.removeProperty(
+        "transform"
+      );
+
+    },
+    {
+      passive: true
+    }
+  );
+
+
+  console.log(
+    "✓ V10 evidence cursor active"
+  );
+
+})();
