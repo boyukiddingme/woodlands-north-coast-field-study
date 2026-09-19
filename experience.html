@@ -1388,10 +1388,11 @@
       }
     }
 
-</style>
+    </style>
 <link rel="stylesheet" href="field-effects.css%3Fv=4.css">
 <link rel="stylesheet" href="header-music.css">
 <script src="header-music.js" defer></script>
+  <link rel="stylesheet" href="route-film.css">
 </head>
 <body>
   <nav class="site-nav" aria-label="Project navigation">
@@ -1536,36 +1537,293 @@
         <div><span>Weather</span><strong><editable-text data-edit-text="text-73">Bright sun · warm and mostly dry</editable-text></strong></div>
       </div>
 
-      <article class="chapter" id="route" aria-labelledby="route-title">
-        <div class="chapter-head">
-          <p class="mono"><editable-text data-edit-text="text-74">RQ 03 / Social sustainability · Accessibility</editable-text></p>
-          <div><span class="evidence-label observation">Direct field observation</span><h2 id="route-title"><editable-text data-edit-text="text-75">The seven-minute claim did not match my route.</editable-text></h2><p><editable-text data-edit-text="text-76">My observed route began at Woodlands North MRT Exit 1, passed through Republic Polytechnic, crossed one traffic junction and continued along Woodlands Avenue 9. It took about 16 minutes. This does not mean every journey takes 16 minutes: another exit, a different walking speed or a clearer route may produce a shorter time.</editable-text></p></div>
+      
+      
+      
+      <article class="chapter route-film-chapter" id="route" aria-labelledby="route-title">
+
+        <div class="route-film-intro">
+
+          <div class="route-film-topline">
+
+            <span class="mono">
+              RQ 03 / Social sustainability · Accessibility
+            </span>
+
+            <span class="evidence-label observation">
+              Direct field observation
+            </span>
+
+          </div>
+
+
+          <div class="route-film-heading">
+
+            <h2 id="route-title">
+              The seven-minute claim did not match my route.
+            </h2>
+
+            <p>
+              My observed route began beside the bicycle parking at
+              Woodlands North MRT Exit 1, continued through Republic
+              Polytechnic, reached the main road and then followed the
+              approach towards Woodlands North Coast. The full journey
+              took about 16 minutes.
+            </p>
+
+          </div>
+
+
+          <div class="route-film-metrics">
+
+            <div>
+              <span>Observed journey</span>
+              <strong>≈ 16 min</strong>
+            </div>
+
+            <div>
+              <span>Traffic-light wait</span>
+              <strong>≈ 30 sec</strong>
+            </div>
+
+            <div>
+              <span>Route condition</span>
+              <strong>Mostly open</strong>
+            </div>
+
+          </div>
+
+
+          <div class="route-film-source">
+
+            <span class="mono">
+              Official claim × field test
+            </span>
+
+            <p>
+              JTC lists both buildings as a seven-minute walk from
+              Woodlands North MRT. My Exit 1 route took about
+              16 minutes, so the official figure was not reproduced
+              under the route and conditions I encountered.
+            </p>
+
+            <a
+              href="https://www.jtc.gov.sg/find-space/1-north-coast"
+              target="_blank"
+              rel="noopener">
+              JTC source ↗
+            </a>
+
+          </div>
+
+
+          <div class="route-film-enter">
+
+            <span class="mono">
+              Field journey · 4 September 2026
+            </span>
+
+            <strong>
+              Scroll to walk.
+            </strong>
+
+            <p>
+              The 3D reconstruction follows the observed route.
+              Scrolling continuously scrubs the camera forward.
+              My photographs interrupt the reconstruction only
+              at the locations where the evidence was recorded.
+            </p>
+
+          </div>
+
         </div>
-        <div class="route-line" aria-label="Observed route sequence">
-          <div class="route-stop"><span>15:26</span><strong><editable-text data-edit-text="text-77">Woodlands North MRT</editable-text></strong></div>
-          <div class="route-stop"><span>Exit 1</span><strong><editable-text data-edit-text="text-78">Republic Polytechnic side</editable-text></strong></div>
-          <div class="route-stop"><span>On foot</span><strong><editable-text data-edit-text="text-79">Roadside approach</editable-text></strong></div>
-          <div class="route-stop"><span>One crossing</span><strong><editable-text data-edit-text="text-80">Woodlands Avenue 9</editable-text></strong></div>
-          <div class="route-stop"><span>≈16 min</span><strong><editable-text data-edit-text="text-81">North Coast arrival</editable-text></strong></div>
+
+
+        <div class="route-film-story" id="routeFilm">
+
+          <div class="route-film-sticky">
+
+            <div
+              class="route-film-scene"
+              id="routeFilmScene">
+            </div>
+
+
+            <div class="route-film-grade"></div>
+
+
+            <div
+              class="route-film-dim"
+              id="routeFilmDim">
+            </div>
+
+
+            <div
+              class="route-film-loader"
+              id="routeFilmLoader">
+
+              <i></i>
+
+              <span>
+                PREPARING WALKING RECONSTRUCTION
+              </span>
+
+            </div>
+
+
+            <div class="route-film-hud">
+
+              <div class="route-film-place">
+
+                <span
+                  class="mono"
+                  id="routeFilmHudIndex">
+                  01 / 08
+                </span>
+
+                <strong id="routeFilmHudPlace">
+                  Woodlands North MRT · bicycle parking
+                </strong>
+
+              </div>
+
+
+              <div class="route-film-status">
+
+                <span>
+                  3D FIELD WALK
+                </span>
+
+                <i></i>
+
+                <span id="routeFilmHudTime">
+                  15:31
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="route-film-progress">
+              <span id="routeFilmProgress"></span>
+            </div>
+
+
+            <div class="route-film-scroll">
+              <span>SCROLL TO WALK</span>
+            </div>
+
+
+            <div class="route-film-evidence">
+
+              <div
+                class="route-film-sheet"
+                id="routeFilmSheet">
+
+                <button
+                  type="button"
+                  class="route-film-photo"
+                  id="routeFilmPhoto"
+                  aria-label="Open fieldwork photograph">
+
+                  <img
+                    id="routeFilmPhotoImage"
+                    src=""
+                    alt="">
+
+                  <div class="route-film-photo-meta">
+
+                    <span class="mono">
+                      PRIMARY FIELD EVIDENCE
+                    </span>
+
+                    <span>
+                      VIEW EVIDENCE ↗
+                    </span>
+
+                  </div>
+
+                </button>
+
+
+                <div
+                  class="route-film-copy"
+                  id="routeFilmCopy">
+
+                  <span
+                    class="route-film-copy-index mono"
+                    id="routeFilmCopyIndex">
+                  </span>
+
+                  <h3 id="routeFilmCopyTitle"></h3>
+
+                  <p
+                    class="route-film-caption"
+                    id="routeFilmCopyCaption">
+                  </p>
+
+                  <div class="route-film-analysis">
+
+                    <span class="mono">
+                      What this shows
+                    </span>
+
+                    <p id="routeFilmCopyAnalysis"></p>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="route-film-track"
+            aria-hidden="true">
+
+            <div class="route-film-beat"></div>
+            <div class="route-film-beat"></div>
+            <div class="route-film-beat"></div>
+            <div class="route-film-beat"></div>
+            <div class="route-film-beat"></div>
+            <div class="route-film-beat"></div>
+            <div class="route-film-beat"></div>
+            <div class="route-film-beat"></div>
+
+          </div>
+
         </div>
-        <div class="route-finding">
-          <div><strong><editable-text data-edit-text="text-82">≈16 min</editable-text></strong><span>Observed journey from Exit 1</span></div>
-          <div><strong><editable-text data-edit-text="text-83">≈30 sec</editable-text></strong><span>Observed traffic-light wait</span></div>
-          <div><strong><editable-text data-edit-text="text-84">Mostly open</editable-text></strong><span>Little shelter from sun or rain</span></div>
+
+
+        <div class="route-film-end">
+
+          <span class="mono">
+            ARRIVAL · APPROX. 15:47
+          </span>
+
+          <h3>
+            Proximity did not automatically mean easy access.
+          </h3>
+
+          <p>
+            The approach was longer and less sheltered than the
+            internal public spaces at Woodlands North Coast.
+            Accessibility therefore depended on the quality of
+            the complete walking connection, not only proximity
+            to the MRT.
+          </p>
+
         </div>
-        <div class="source-bridge"><span>Official claim × field test</span><p><editable-text data-edit-text="text-85">JTC lists both buildings as a seven-minute walk from Woodlands North MRT. My Exit 1 route took about 16 minutes, so the official figure was not reproduced under the route and conditions I encountered.</editable-text></p><a href="https://www.jtc.gov.sg/find-space/1-north-coast" target="_blank" rel="noopener">JTC source ↗</a></div>
-        <div class="photo-grid route-gallery" aria-label="Scroll through the observed route photographs">
-          <figure class="evidence-photo" data-photo="fieldwork/IMG20260904152602.webp" data-analysis="The station map established the general direction of North Coast, but it did not provide a clear door-to-door pedestrian route. This became the starting point for testing the published walking-time claim."><img loading="eager" fetchpriority="high" decoding="async" src="fieldwork/IMG20260904152602.webp" alt="Locality map at Woodlands North MRT" data-edit-image="image-7"><figcaption><strong><editable-text data-edit-text="text-86">Station map · 15:26</editable-text></strong><editable-text data-edit-text="text-87">The map gave a broad direction, but I found little dedicated North Coast wayfinding outside.</editable-text></figcaption></figure>
-          <figure class="evidence-photo" data-photo="fieldwork/IMG20260904153138.webp" data-analysis="Covered bicycle parking was available immediately outside Exit 1. It supports cycling access to the station, although I did not find a dedicated cycle route continuing from the MRT to Woodlands North Coast."><img loading="eager" decoding="async" src="fieldwork/IMG20260904153138.webp" alt="Bicycle parking outside Woodlands North MRT Exit 1" data-edit-image="image-8"><figcaption><strong><editable-text data-edit-text="text-88">Exit 1 bicycle parking · 15:31</editable-text></strong><editable-text data-edit-text="text-89">Bicycle parking was present outside the station.</editable-text></figcaption></figure>
-          <figure class="evidence-photo portrait" data-photo="fieldwork/IMG20260904153151.webp" data-analysis="This was the path immediately outside Exit 1 inside Republic Polytechnic. It was passable and wide enough for normal pedestrian movement, but there was no obvious North Coast marker. The published copy is cropped to protect a vehicle number plate."><img loading="eager" decoding="async" src="fieldwork/IMG20260904153151.webp" alt="Walkway immediately outside Exit 1 inside Republic Polytechnic" data-edit-image="image-9"><figcaption><strong><editable-text data-edit-text="text-90">Walkway outside Exit 1</editable-text></strong><editable-text data-edit-text="text-91">The published copy is cropped to remove a vehicle number plate.</editable-text></figcaption></figure>
-          <figure class="evidence-photo portrait" data-photo="fieldwork/IMG20260904153210.webp" data-analysis="The guard post marked a transition through the Republic Polytechnic side of the route. It was open and I stayed on the public path; the image is not evidence that restricted campus areas were entered."><img loading="lazy" decoding="async" src="fieldwork/IMG20260904153210.webp" alt="Open guard post on the route through Republic Polytechnic" data-edit-image="image-10"><figcaption><strong><editable-text data-edit-text="text-92">Republic Polytechnic route</editable-text></strong><editable-text data-edit-text="text-93">The guard post was open and I remained on the public route.</editable-text></figcaption></figure>
-          <figure class="evidence-photo wide" data-photo="fieldwork/IMG20260904153451.webp" data-analysis="Trees created intermittent shade beside the road, but there was no continuous shelter. In bright, sunny conditions, the approach was less comfortable than the shaded public spaces inside North Coast."><img loading="lazy" decoding="async" src="fieldwork/IMG20260904153451.webp" alt="Tree-shaded pavement beside the approach road" data-edit-image="image-11"><figcaption><strong><editable-text data-edit-text="text-94">Partial tree shade</editable-text></strong><editable-text data-edit-text="text-95">The pavement was generally wide enough for about two people, but the route remained mostly unsheltered.</editable-text></figcaption></figure>
-          <figure class="evidence-photo" data-photo="fieldwork/IMG20260904153534.webp" data-analysis="This was the only major signalised crossing on my observed route. Ramps and tactile paving supported accessibility, and the approximately 30-second wait was not the main reason the whole journey took longer than seven minutes."><img loading="lazy" decoding="async" src="fieldwork/IMG20260904153534.webp" alt="Traffic crossing on the fieldwork route" data-edit-image="image-12"><figcaption><strong><editable-text data-edit-text="text-96">Main crossing</editable-text></strong><editable-text data-edit-text="text-97">Ramps and tactile paving were visible; the wait was about 30 seconds.</editable-text></figcaption></figure>
-          <figure class="evidence-photo" data-photo="fieldwork/IMG20260904153604.webp" data-analysis="RTS Link works altered the visual character and legibility of Woodlands Avenue 9. The pedestrian path remained usable, but construction is a plausible temporary reason why this route may differ from the intended long-term connection."><img loading="lazy" decoding="async" src="fieldwork/IMG20260904153604.webp" alt="RTS Link construction beside Woodlands Avenue 9" data-edit-image="image-13"><figcaption><strong><editable-text data-edit-text="text-98">RTS Link works</editable-text></strong><editable-text data-edit-text="text-99">Construction made the route less legible, although paths remained passable.</editable-text></figcaption></figure>
-          <figure class="evidence-photo" data-photo="fieldwork/IMG20260904153717.webp" data-analysis="The buildings themselves became the most useful landmark once they were visible from a distance. Their large scale partly compensated for the lack of dedicated pedestrian signs, but this is not the same as effective wayfinding."><img loading="lazy" decoding="async" src="fieldwork/IMG20260904153717.webp" alt="First approach view of Woodlands North Coast" data-edit-image="image-14"><figcaption><strong><editable-text data-edit-text="text-100">First clear view</editable-text></strong><editable-text data-edit-text="text-101">The buildings' scale helped with navigation once they became visible.</editable-text></figcaption></figure>
-          <figure class="evidence-photo wide" data-photo="fieldwork/IMG20260904154750.webp" data-analysis="This frame records arrival and the relationship between 1 and 7 North Coast. At street level their height difference was surprisingly hard to judge; the official 3D mesh later made the stepped volumes and rooftop structures much clearer."><img loading="lazy" decoding="async" src="fieldwork/IMG20260904154750.webp" alt="1 and 7 North Coast seen together" data-edit-image="image-15"><figcaption><strong><editable-text data-edit-text="text-102">Arrival and built form · 15:47</editable-text></strong><editable-text data-edit-text="text-103">At ground level, the height difference was harder to read than it is in the 3D map.</editable-text></figcaption></figure>
-        </div>
+
       </article>
+
+
+
 
       <article class="chapter" id="shade" aria-labelledby="shade-title">
         <div class="chapter-head">
@@ -2636,5 +2894,7 @@
     }, { passive: true });
     renderPageScroll();
   </script>
-<link rel="stylesheet" href="editor.css"><script src="editor.js" defer></script><script src="field-effects.js%3Fv=4" defer></script><script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3d5939599911e38',t:'MTc4OTc4OTMwNQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<link rel="stylesheet" href="editor.css"><script src="editor.js" defer></script><script src="field-effects.js%3Fv=4" defer></script><script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3d5939599911e38',t:'MTc4OTc4OTMwNQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+  <script src="route-film.js" defer></script>
+</body>
 </html>

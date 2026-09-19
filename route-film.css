@@ -1,0 +1,2328 @@
+/* ============================================================
+   ROUTE FILM V1
+   Continuous scroll-scrubbed 3D walk.
+   Field photographs are the evidence moments.
+   ============================================================ */
+
+#evidence.fieldwork {
+  overflow: visible !important;
+}
+
+.route-film-chapter {
+  padding: 0 !important;
+  overflow: visible !important;
+}
+
+
+/* ============================================================
+   INTRO
+   ============================================================ */
+
+.route-film-intro {
+  padding:
+    clamp(5rem,9vw,9rem)
+    0
+    clamp(5rem,8vw,8rem);
+}
+
+.route-film-topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+
+  margin-bottom:
+    clamp(3rem,6vw,6rem);
+}
+
+.route-film-topline .mono {
+  color: var(--soft);
+  font-size: .64rem;
+}
+
+.route-film-heading {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0,1.35fr)
+    minmax(22rem,.65fr);
+
+  gap:
+    clamp(2rem,7vw,8rem);
+
+  align-items: end;
+}
+
+.route-film-heading h2 {
+  margin: 0;
+
+  max-width: 12ch;
+
+  font:
+    300 clamp(3.7rem,6.8vw,7.6rem)/.87
+    "Newsreader",serif;
+
+  letter-spacing: -.05em;
+}
+
+.route-film-heading p {
+  margin: 0;
+
+  color: var(--soft);
+
+  line-height: 1.7;
+}
+
+.route-film-metrics {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap: 1px;
+
+  margin-top:
+    clamp(4rem,7vw,7rem);
+
+  border:
+    1px solid var(--line);
+
+  background:
+    var(--line);
+}
+
+.route-film-metrics > div {
+  min-height: 10rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 1.15rem;
+
+  background:
+    var(--paper);
+}
+
+.route-film-metrics span {
+  color: var(--soft);
+
+  font:
+    .59rem "DM Mono",monospace;
+
+  letter-spacing: .06em;
+
+  text-transform: uppercase;
+}
+
+.route-film-metrics strong {
+  font:
+    300 clamp(2.2rem,3.8vw,4rem)/.95
+    "Newsreader",serif;
+}
+
+.route-film-source {
+  display: grid;
+
+  grid-template-columns:
+    12rem
+    1fr
+    auto;
+
+  gap: 2rem;
+
+  align-items: center;
+
+  margin-top: 1rem;
+
+  padding: 1.25rem;
+
+  color: var(--paper);
+
+  background:
+    var(--ink);
+}
+
+.route-film-source > span {
+  color: var(--acid);
+
+  font-size: .59rem;
+}
+
+.route-film-source p {
+  margin: 0;
+
+  line-height: 1.55;
+}
+
+.route-film-source a {
+  white-space: nowrap;
+
+  font:
+    .59rem "DM Mono",monospace;
+
+  text-transform: uppercase;
+
+  letter-spacing: .05em;
+
+  text-underline-offset: 4px;
+}
+
+.route-film-enter {
+  display: grid;
+
+  grid-template-columns:
+    auto
+    1fr
+    minmax(18rem,.7fr);
+
+  gap:
+    clamp(1.5rem,4vw,4rem);
+
+  align-items: end;
+
+  margin-top:
+    clamp(5rem,9vw,9rem);
+
+  padding-top: 1.15rem;
+
+  border-top:
+    1px solid var(--line);
+}
+
+.route-film-enter > span {
+  color: var(--soft);
+
+  font-size: .6rem;
+}
+
+.route-film-enter strong {
+  font:
+    300 clamp(2.4rem,4vw,4.6rem)/.92
+    "Newsreader",serif;
+}
+
+.route-film-enter p {
+  margin: 0;
+
+  color: var(--soft);
+
+  font-size: .8rem;
+
+  line-height: 1.55;
+}
+
+
+/* ============================================================
+   FULL SCREEN FILM
+   ============================================================ */
+
+.route-film-story {
+  position: relative;
+
+  left: 50%;
+
+  width: 100vw;
+
+  margin-left: -50vw;
+
+  isolation: isolate;
+
+  background: #d7dbd2;
+}
+
+.route-film-sticky {
+  position: sticky;
+
+  top: 0;
+
+  width: 100%;
+
+  height: 100svh;
+
+  overflow: hidden;
+
+  isolation: isolate;
+
+  background:
+    linear-gradient(
+      150deg,
+      #eff1ea,
+      #c3c9be
+    );
+}
+
+.route-film-scene {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 0;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  background: #d9ddd4;
+
+  transition:
+    opacity .8s ease;
+}
+
+.route-film-scene.ready {
+  opacity: 1;
+}
+
+.route-film-scene .esri-view-surface::after {
+  outline: none !important;
+}
+
+.route-film-scene .esri-attribution {
+  font:
+    .48rem "DM Mono",monospace
+    !important;
+
+  background:
+    rgba(239,241,234,.75)
+    !important;
+
+  color:
+    #354235
+    !important;
+}
+
+.route-film-grade {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 2;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(8,11,7,.13),
+      transparent 24%,
+      transparent 70%,
+      rgba(8,10,7,.25)
+    ),
+    linear-gradient(
+      90deg,
+      rgba(8,10,7,.08),
+      transparent 18%,
+      transparent 82%,
+      rgba(8,10,7,.07)
+    );
+}
+
+.route-film-dim {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 3;
+
+  pointer-events: none;
+
+  opacity: 0;
+
+  background:
+    rgba(9,12,8,.48);
+
+  will-change:
+    opacity;
+}
+
+
+/* ============================================================
+   LOADING
+   ============================================================ */
+
+.route-film-loader {
+  position: absolute;
+
+  z-index: 60;
+
+  left: 50%;
+
+  top: 50%;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: .7rem;
+
+  padding: .8rem 1rem;
+
+  color: #172017;
+
+  background:
+    rgba(239,241,234,.94);
+
+  border:
+    1px solid rgba(23,32,23,.18);
+
+  transform:
+    translate(-50%,-50%);
+
+  backdrop-filter:
+    blur(12px);
+
+  font:
+    .58rem "DM Mono",monospace;
+
+  letter-spacing: .07em;
+
+  transition:
+    opacity .4s ease;
+}
+
+.route-film-loader.hidden {
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+.route-film-loader i {
+  width: .7rem;
+
+  height: .7rem;
+
+  border:
+    1px solid #5e803e;
+
+  border-top-color:
+    transparent;
+
+  border-radius: 50%;
+
+  animation:
+    route-film-spin
+    .75s linear infinite;
+}
+
+@keyframes route-film-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* ============================================================
+   HUD
+   ============================================================ */
+
+.route-film-hud {
+  position: absolute;
+
+  z-index: 35;
+
+  top: 5.25rem;
+
+  left: 1.25rem;
+
+  right: 1.25rem;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 2rem;
+
+  pointer-events: none;
+}
+
+.route-film-place,
+.route-film-status {
+  color: white;
+
+  background:
+    rgba(18,22,17,.75);
+
+  border:
+    1px solid rgba(255,255,255,.2);
+
+  backdrop-filter:
+    blur(14px);
+}
+
+.route-film-place {
+  min-width: 14rem;
+
+  display: grid;
+
+  gap: .35rem;
+
+  padding: .8rem .9rem;
+}
+
+.route-film-place span {
+  color: var(--acid);
+
+  font-size: .55rem;
+}
+
+.route-film-place strong {
+  font-size: .92rem;
+
+  font-weight: 400;
+}
+
+.route-film-status {
+  display: flex;
+
+  align-items: center;
+
+  gap: .65rem;
+
+  padding: .72rem .85rem;
+
+  font:
+    .54rem "DM Mono",monospace;
+
+  letter-spacing: .06em;
+}
+
+.route-film-status i {
+  width: .4rem;
+
+  height: .4rem;
+
+  border-radius: 50%;
+
+  background: var(--acid);
+
+  box-shadow:
+    0 0 0 4px
+    rgba(200,255,61,.13);
+}
+
+.route-film-progress {
+  position: absolute;
+
+  z-index: 36;
+
+  left: 1.25rem;
+
+  right: 1.25rem;
+
+  bottom: 1.25rem;
+
+  height: 2px;
+
+  background:
+    rgba(255,255,255,.34);
+}
+
+.route-film-progress span {
+  display: block;
+
+  width: 0;
+
+  height: 100%;
+
+  background:
+    var(--acid);
+
+  box-shadow:
+    0 0 18px
+    rgba(200,255,61,.5);
+}
+
+.route-film-scroll {
+  position: absolute;
+
+  z-index: 36;
+
+  right: 1.25rem;
+
+  bottom: 2rem;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: .65rem;
+
+  color:
+    rgba(255,255,255,.72);
+
+  font:
+    .53rem "DM Mono",monospace;
+
+  letter-spacing: .07em;
+
+  pointer-events: none;
+}
+
+
+/* ============================================================
+   EVIDENCE SHEET
+   ============================================================ */
+
+.route-film-evidence {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 20;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.route-film-sheet {
+  position: absolute;
+
+  left: 50%;
+
+  top: 0;
+
+  width:
+    min(72vw,1100px);
+
+  opacity: 0;
+
+  transform:
+    translate3d(
+      -50%,
+      110vh,
+      0
+    );
+
+  pointer-events: none;
+
+  will-change:
+    transform,
+    opacity;
+}
+
+.route-film-sheet.is-live {
+  pointer-events: auto;
+}
+
+.route-film-photo {
+  appearance: none;
+
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+
+  height: 47svh;
+
+  margin: 0;
+
+  padding: 0;
+
+  overflow: hidden;
+
+  cursor: zoom-in;
+
+  background: #171a16;
+
+  border:
+    1px solid
+    rgba(255,255,255,.6);
+
+  box-shadow:
+    0 28px 90px
+    rgba(0,0,0,.3);
+}
+
+.route-film-photo img {
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center;
+}
+
+.route-film-photo.contain img {
+  object-fit: contain;
+
+  background: #e8e5dc;
+}
+
+.route-film-photo-meta {
+  position: absolute;
+
+  left: .8rem;
+
+  right: .8rem;
+
+  bottom: .8rem;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  padding: .7rem .8rem;
+
+  color: white;
+
+  background:
+    rgba(12,15,11,.75);
+
+  border:
+    1px solid
+    rgba(255,255,255,.26);
+
+  backdrop-filter:
+    blur(14px);
+
+  font:
+    .55rem "DM Mono",monospace;
+
+  letter-spacing: .06em;
+}
+
+.route-film-photo-meta span:first-child {
+  color:
+    var(--acid);
+}
+
+.route-film-copy {
+  position: relative;
+
+  width: 100%;
+
+  padding:
+    clamp(1.6rem,2.8vw,2.8rem)
+    clamp(1.7rem,3.5vw,3.5rem)
+    clamp(2.3rem,4vw,4rem);
+
+  color:
+    var(--ink);
+
+  background:
+    rgba(241,239,231,.98);
+
+  border:
+    1px solid
+    rgba(255,255,255,.55);
+
+  border-top: 0;
+
+  box-shadow:
+    0 28px 80px
+    rgba(0,0,0,.17);
+
+  backdrop-filter:
+    blur(20px);
+
+  opacity:
+    var(--route-copy-opacity,0);
+
+  transform:
+    translate3d(
+      0,
+      var(--route-copy-y,8vh),
+      0
+    );
+
+  will-change:
+    opacity,
+    transform;
+}
+
+.route-film-copy-index {
+  display: block;
+
+  margin-bottom: 1.1rem;
+
+  color: #315736;
+
+  font-size: .58rem;
+}
+
+.route-film-copy h3 {
+  max-width: 16ch;
+
+  margin:
+    0 0 .9rem;
+
+  font:
+    300 clamp(2.1rem,3vw,3.6rem)/.92
+    "Newsreader",serif;
+
+  letter-spacing: -.035em;
+}
+
+.route-film-caption {
+  max-width: 56rem;
+
+  margin: 0;
+
+  padding-bottom: 1.2rem;
+
+  color:
+    var(--soft);
+
+  border-bottom:
+    1px solid
+    var(--line);
+
+  font-size: .92rem;
+
+  line-height: 1.58;
+}
+
+.route-film-analysis {
+  max-width: 56rem;
+
+  padding-top: 1.25rem;
+}
+
+.route-film-analysis span {
+  display: block;
+
+  margin-bottom: .7rem;
+
+  color: #315736;
+
+  font-size: .56rem;
+}
+
+.route-film-analysis p {
+  margin: 0;
+
+  font-size:
+    clamp(.96rem,1.08vw,1.08rem);
+
+  line-height: 1.7;
+}
+
+
+/* ============================================================
+   SCROLL TRACK
+   ============================================================ */
+
+.route-film-track {
+  position: relative;
+
+  z-index: 2;
+
+  margin-top: -100svh;
+
+  pointer-events: none;
+}
+
+.route-film-beat {
+  height: 320svh;
+}
+
+
+/* ============================================================
+   END
+   ============================================================ */
+
+.route-film-end {
+  display: grid;
+
+  grid-template-columns:
+    .45fr
+    1.1fr
+    .9fr;
+
+  gap:
+    clamp(2rem,6vw,7rem);
+
+  align-items: start;
+
+  padding:
+    clamp(5rem,8vw,8rem)
+    0;
+
+  color:
+    var(--paper);
+
+  background:
+    var(--ink);
+}
+
+.route-film-end > span {
+  color:
+    var(--acid);
+
+  font-size: .6rem;
+}
+
+.route-film-end h3 {
+  margin: 0;
+
+  font:
+    300 clamp(3rem,5vw,6rem)/.9
+    "Newsreader",serif;
+
+  letter-spacing: -.045em;
+}
+
+.route-film-end p {
+  margin: 0;
+
+  color:
+    rgba(241,239,231,.68);
+
+  line-height: 1.7;
+}
+
+
+@media (max-width:850px) {
+
+  .route-film-heading,
+  .route-film-enter,
+  .route-film-end {
+    grid-template-columns: 1fr;
+  }
+
+  .route-film-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .route-film-source {
+    grid-template-columns: 1fr;
+  }
+
+  .route-film-status {
+    display: none;
+  }
+
+  .route-film-sheet {
+    width: 94vw;
+  }
+
+  .route-film-photo {
+    height: 44svh;
+  }
+}
+
+
+/* ============================================================
+   GOOGLE-ROUTE EVIDENCE V2
+   Full image -> split -> whole thing exits
+   ============================================================ */
+
+.route-film-beat {
+  height: 300svh !important;
+}
+
+
+.route-film-sheet {
+  position: absolute !important;
+
+  left: 50% !important;
+
+  top: 0 !important;
+
+  width: 96vw !important;
+
+  height: 88vh !important;
+
+  overflow: visible !important;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transform:
+    translate3d(
+      -50%,
+      110vh,
+      0
+    );
+
+  will-change:
+    transform,
+    opacity;
+}
+
+
+.route-film-sheet.is-live {
+  pointer-events: auto;
+}
+
+
+/* ------------------------------------------------------------
+   PHOTO
+
+   Full-page first.
+   Then smoothly retreats to the left.
+   ------------------------------------------------------------ */
+
+.route-film-sheet .route-film-photo {
+  position: absolute !important;
+
+  left: 0 !important;
+
+  top: 0 !important;
+
+  width:
+    var(
+      --evidence-photo-width,
+      100%
+    ) !important;
+
+  height:
+    var(
+      --evidence-photo-height,
+      86vh
+    ) !important;
+
+  margin: 0 !important;
+
+  transition:
+    none !important;
+
+  transform:
+    none !important;
+
+  opacity:
+    1 !important;
+
+  background:
+    #171a16;
+
+  border:
+    1px solid
+    rgba(255,255,255,.62);
+
+  box-shadow:
+    0 28px 90px
+    rgba(0,0,0,.32);
+
+  will-change:
+    width,
+    height;
+}
+
+
+/* ------------------------------------------------------------
+   ANALYSIS PANEL
+
+   Invisible while the image is full-screen.
+
+   Appears on the right only when image retreats.
+   ------------------------------------------------------------ */
+
+.route-film-sheet .route-film-copy {
+  position: absolute !important;
+
+  right: 0 !important;
+
+  left: auto !important;
+
+  top: 7vh !important;
+
+  bottom: auto !important;
+
+  width: 40% !important;
+
+  max-height: 72vh !important;
+
+  overflow-y: auto !important;
+
+  margin: 0 !important;
+
+  padding:
+    clamp(1.5rem,2.5vw,2.6rem)
+    clamp(1.5rem,3vw,3rem)
+    clamp(2rem,3vw,3rem)
+    !important;
+
+  color:
+    var(--ink);
+
+  background:
+    rgba(241,239,231,.97);
+
+  border:
+    1px solid
+    rgba(255,255,255,.58);
+
+  box-shadow:
+    0 25px 75px
+    rgba(0,0,0,.20);
+
+  backdrop-filter:
+    blur(20px);
+
+  opacity:
+    var(
+      --evidence-copy-opacity,
+      0
+    )
+    !important;
+
+  transform:
+    translate3d(
+      var(
+        --evidence-copy-x,
+        4vw
+      ),
+      0,
+      0
+    )
+    !important;
+
+  pointer-events: none;
+
+  will-change:
+    opacity,
+    transform;
+}
+
+
+.route-film-sheet.split
+.route-film-copy {
+  pointer-events: auto;
+}
+
+
+/* The actual photo should stay visually dominant. */
+
+.route-film-copy h3 {
+  font-size:
+    clamp(
+      2rem,
+      3vw,
+      3.5rem
+    ) !important;
+
+  line-height:
+    .92 !important;
+}
+
+
+@media (max-width:850px) {
+
+  .route-film-sheet {
+    width: 94vw !important;
+  }
+
+  .route-film-sheet.split
+  .route-film-photo {
+    width: 100% !important;
+
+    height: 48vh !important;
+  }
+
+  .route-film-sheet
+  .route-film-copy {
+    top: 50vh !important;
+
+    width: 100% !important;
+
+    max-height: 37vh !important;
+  }
+}
+
+
+
+/* ============================================================
+   START SEQUENCE FIX V3
+   ============================================================ */
+
+/*
+   STATION MAP + BICYCLE RACKS
+
+   Same physical location.
+   Shorter than the moving chapters.
+*/
+
+.route-film-beat:nth-child(1),
+.route-film-beat:nth-child(2) {
+  height: 190svh !important;
+}
+
+
+/*
+   WALKWAY + RP ENTRANCE
+
+   Very short real-world distance.
+*/
+
+.route-film-beat:nth-child(3),
+.route-film-beat:nth-child(4) {
+  height: 275svh !important;
+}
+
+
+/*
+   MAIN ROAD JOURNEY
+
+   Enough distance for:
+   walk -> full image -> split analysis -> reading -> exit.
+*/
+
+.route-film-beat:nth-child(n+5):not(:last-child) {
+  height: 390svh !important;
+}
+
+
+/*
+   ARRIVAL
+
+   Longer so the final analysis is readable.
+*/
+
+.route-film-beat:last-child {
+  height: 450svh !important;
+}
+
+
+/*
+   After ARRIVAL has travelled completely upward,
+   keep the final 3D view visible for one entire viewport.
+
+   Only THEN may the next website section appear.
+*/
+
+.route-film-track {
+  padding-bottom: 100svh !important;
+}
+
+
+/* ============================================================
+   EVIDENCE PRESENTATION FINAL POLISH
+   ============================================================ */
+
+/*
+   CRITICAL FIX:
+   when analysis appears, the photograph ONLY changes width.
+
+   Its vertical position and height remain exactly the same.
+*/
+
+.route-film-sheet .route-film-photo {
+  height: 86vh !important;
+  top: 0 !important;
+  bottom: auto !important;
+}
+
+
+/*
+   Keep analysis aligned with the TOP of the photograph.
+   Previously it was sitting lower, which made the entire
+   composition feel as though the photograph had jumped.
+*/
+
+.route-film-sheet .route-film-copy {
+  top: 0 !important;
+}
+
+
+/*
+   During split view the photo remains a full-height visual
+   column rather than becoming a smaller card.
+*/
+
+.route-film-sheet.split .route-film-photo {
+  height: 86vh !important;
+}
+
+
+/*
+   Text panel can be shorter than the photograph — that's fine.
+   The PHOTO remains the dominant object.
+*/
+
+.route-film-sheet.split .route-film-copy {
+  max-height: 86vh !important;
+}
+
+
+/* ============================================================
+   COMPACT ROUTE EVIDENCE INDEX / FILM ROLL
+   Secondary navigation only.
+   ============================================================ */
+
+.route-evidence-index {
+  position: relative;
+
+  width: 100%;
+
+  padding:
+    2rem 0
+    2.6rem;
+
+  color: var(--ink);
+
+  background: var(--paper);
+
+  border-top:
+    1px solid var(--line);
+
+  border-bottom:
+    1px solid var(--line);
+}
+
+.route-evidence-index-inner {
+  width:
+    min(
+      calc(100% - 8vw),
+      1500px
+    );
+
+  margin:
+    0 auto;
+}
+
+
+/* header */
+
+.route-evidence-index-head {
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  gap: 2rem;
+
+  margin-bottom:
+    1rem;
+}
+
+.route-evidence-index-title {
+  display: grid;
+
+  gap: .3rem;
+}
+
+.route-evidence-index-title span {
+  color: #315736;
+
+  font:
+    .55rem "DM Mono",monospace;
+
+  letter-spacing: .07em;
+
+  text-transform: uppercase;
+}
+
+.route-evidence-index-title strong {
+  font:
+    300 clamp(1.6rem,2.4vw,2.6rem)/.95
+    "Newsreader",serif;
+
+  letter-spacing: -.025em;
+}
+
+
+/* arrows */
+
+.route-evidence-controls {
+  display: flex;
+
+  gap: .45rem;
+}
+
+.route-evidence-arrow {
+  width: 2.5rem;
+
+  height: 2.5rem;
+
+  display: grid;
+
+  place-items: center;
+
+  appearance: none;
+
+  color: var(--ink);
+
+  background: transparent;
+
+  border:
+    1px solid var(--line);
+
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  font-size: 1rem;
+
+  transition:
+    background .15s ease,
+    color .15s ease;
+}
+
+.route-evidence-arrow:hover {
+  color: var(--paper);
+
+  background: var(--ink);
+}
+
+
+/* horizontal reel */
+
+.route-evidence-window {
+  overflow: hidden;
+}
+
+.route-evidence-track {
+  display: flex;
+
+  gap: .7rem;
+
+  overflow-x: auto;
+
+  padding-bottom: .35rem;
+
+  scroll-behavior: smooth;
+
+  scroll-snap-type:
+    x proximity;
+
+  scrollbar-width: none;
+}
+
+.route-evidence-track::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* individual frame */
+
+.route-evidence-frame {
+  position: relative;
+
+  flex:
+    0 0
+    clamp(9.5rem,12vw,12.5rem);
+
+  appearance: none;
+
+  display: grid;
+
+  grid-template-rows:
+    7rem auto;
+
+  gap: .55rem;
+
+  padding: 0;
+
+  color: inherit;
+
+  background: transparent;
+
+  border: 0;
+
+  text-align: left;
+
+  cursor: zoom-in;
+
+  scroll-snap-align: start;
+}
+
+.route-evidence-frame-image {
+  position: relative;
+
+  width: 100%;
+
+  height: 7rem;
+
+  overflow: hidden;
+
+  background: #d9d9d2;
+
+  border:
+    1px solid var(--line);
+}
+
+.route-evidence-frame-image img {
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  filter:
+    saturate(.9);
+
+  transition:
+    transform .28s ease,
+    filter .28s ease;
+}
+
+.route-evidence-frame:hover
+.route-evidence-frame-image img {
+  transform:
+    scale(1.035);
+
+  filter:
+    saturate(1);
+}
+
+
+/* frame number */
+
+.route-evidence-frame-number {
+  position: absolute;
+
+  left: .45rem;
+
+  top: .45rem;
+
+  min-width: 1.8rem;
+
+  padding:
+    .25rem .35rem;
+
+  color: var(--acid);
+
+  background:
+    rgba(14,18,13,.84);
+
+  border:
+    1px solid
+    rgba(255,255,255,.15);
+
+  font:
+    .5rem "DM Mono",monospace;
+
+  text-align: center;
+}
+
+
+/* label */
+
+.route-evidence-frame-copy {
+  display: grid;
+
+  gap: .15rem;
+}
+
+.route-evidence-frame-copy strong {
+  overflow: hidden;
+
+  font-size: .68rem;
+
+  font-weight: 500;
+
+  line-height: 1.25;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+}
+
+.route-evidence-frame-copy span {
+  color: var(--soft);
+
+  font:
+    .5rem "DM Mono",monospace;
+
+  letter-spacing: .02em;
+}
+
+
+/* small explanation */
+
+.route-evidence-index-note {
+  margin:
+    .9rem 0 0;
+
+  color: var(--soft);
+
+  font-size: .68rem;
+
+  line-height: 1.45;
+}
+
+
+@media (max-width:850px) {
+
+  .route-film-sheet.split .route-film-photo {
+    height: 48vh !important;
+  }
+
+  .route-film-sheet.split .route-film-copy {
+    top: 50vh !important;
+  }
+
+  .route-evidence-index-inner {
+    width:
+      calc(100% - 2rem);
+  }
+
+  .route-evidence-frame {
+    flex-basis:
+      9.5rem;
+  }
+}
+
+
+
+/* ============================================================
+   CENTRED SPLIT EVIDENCE V1
+   ============================================================ */
+
+.route-film-sheet.split .route-film-copy {
+  top: 43vh !important;
+
+  bottom: auto !important;
+
+  transform:
+    translate3d(
+      var(--evidence-copy-x, 0vw),
+      -50%,
+      0
+    )
+    !important;
+}
+
+
+/*
+   Keep photograph centred and full-height while the right-hand
+   explanation appears.
+*/
+
+.route-film-sheet.split .route-film-photo {
+  top: 0 !important;
+
+  height: 86vh !important;
+}
+
+
+/*
+   Don't allow a short text card to stick to the top.
+*/
+
+.route-film-sheet.split {
+  align-items: center !important;
+}
+
+
+/*
+   Text itself stays readable and naturally centred inside the
+   panel.
+*/
+
+.route-film-sheet.split .route-film-copy {
+  display: flex !important;
+
+  flex-direction: column !important;
+
+  justify-content: center !important;
+
+  min-height: min(52vh, 34rem) !important;
+
+  max-height: 78vh !important;
+
+  overflow: visible !important;
+}
+
+
+/*
+   Mobile remains stacked rather than attempting side-by-side
+   vertical centring.
+*/
+
+@media (max-width:850px) {
+
+  .route-film-sheet.split .route-film-copy {
+    top: 50vh !important;
+
+    transform:
+      translate3d(
+        var(--evidence-copy-x,0vw),
+        0,
+        0
+      )
+      !important;
+
+    min-height: 0 !important;
+
+    max-height: none !important;
+  }
+}
+
+
+
+/* ============================================================
+   VERIFIED ROUTE / FINAL EVIDENCE PACING V2
+   ============================================================ */
+
+
+/*
+   Starting map + bicycle rack.
+*/
+
+.route-film-beat:nth-child(1),
+.route-film-beat:nth-child(2) {
+  height: 250svh !important;
+}
+
+
+/*
+   Walkway + RP entrance.
+*/
+
+.route-film-beat:nth-child(3),
+.route-film-beat:nth-child(4) {
+  height: 380svh !important;
+}
+
+
+/*
+   Main analytical evidence.
+
+   700vh × 15% locked-reading interval
+   = 105vh of completely stationary photo + text.
+
+   So there is MORE THAN ONE ENTIRE VIEWPORT of scroll where
+   nothing moves and the teacher can simply read.
+*/
+
+.route-film-beat:nth-child(n+5):not(:last-child) {
+  height: 700svh !important;
+}
+
+
+/*
+   Final arrival receives even more room.
+*/
+
+.route-film-beat:last-child {
+  height: 800svh !important;
+}
+
+
+/*
+   Vertical centring of right-hand analysis.
+*/
+
+.route-film-sheet.split .route-film-copy {
+  top: 43vh !important;
+
+  transform:
+    translate3d(
+      var(--evidence-copy-x,0vw),
+      -50%,
+      0
+    )
+    !important;
+
+  display: flex !important;
+
+  flex-direction: column !important;
+
+  justify-content: center !important;
+
+  min-height: 52vh !important;
+
+  max-height: 78vh !important;
+
+  overflow: visible !important;
+}
+
+
+/*
+   Image stays full height while shrinking LEFT.
+*/
+
+.route-film-sheet.split .route-film-photo {
+  top: 0 !important;
+
+  height: 86vh !important;
+}
+
+
+/*
+   AFTER the final arrival card has left the screen,
+   leave the completed 3D route alone for another 1.4 screens.
+
+   Only then does the next website section appear.
+*/
+
+.route-film-track {
+  padding-bottom: 140svh !important;
+}
+
+
+/* ============================================================
+   ROUTE PHOTOS — FULL BLEED V1
+   Every evidence photograph fills its cinematic frame.
+   Full uncropped image remains available via VIEW EVIDENCE.
+   ============================================================ */
+
+/*
+   Remove any contain-mode letterboxing from individual stages.
+*/
+
+.route-film-photo,
+.route-film-photo.contain {
+  background: #111 !important;
+}
+
+
+/*
+   ALL route evidence photographs fill the available frame.
+
+   No beige side bars.
+   No empty top/bottom areas.
+*/
+
+.route-film-photo img,
+.route-film-photo.contain img {
+  width: 100% !important;
+  height: 100% !important;
+
+  object-fit: cover !important;
+
+  object-position: center center !important;
+
+  background: transparent !important;
+}
+
+
+/*
+   LARGE PHOTO STATE
+
+   Make the photograph use essentially the complete visible
+   height beneath the fixed site header.
+*/
+
+.route-film-sheet .route-film-photo {
+  height: calc(100svh - 9rem) !important;
+}
+
+
+/*
+   SPLIT STATE
+
+   When the photograph moves left for the analysis, its vertical
+   size does NOT change. Only its width changes.
+*/
+
+.route-film-sheet.split .route-film-photo {
+  top: 0 !important;
+
+  height: calc(100svh - 9rem) !important;
+}
+
+
+/*
+   Keep the analysis vertically centred against the same
+   full-height photograph.
+*/
+
+.route-film-sheet.split .route-film-copy {
+  top: calc((100svh - 9rem) / 2) !important;
+
+  transform:
+    translate3d(
+      var(--evidence-copy-x,0vw),
+      -50%,
+      0
+    )
+    !important;
+}
+
+
+/*
+   The sheet itself starts just below the navigation bar and
+   uses virtually all of the remaining screen.
+*/
+
+.route-film-sheet {
+  top: 1.5rem !important;
+}
+
+
+/*
+   Mobile remains sensible.
+*/
+
+@media (max-width:850px) {
+
+  .route-film-sheet .route-film-photo,
+  .route-film-sheet.split .route-film-photo {
+    height: 52svh !important;
+  }
+
+  .route-film-sheet.split .route-film-copy {
+    top: 54svh !important;
+
+    transform:
+      translate3d(
+        var(--evidence-copy-x,0vw),
+        0,
+        0
+      )
+      !important;
+  }
+}
+
+/* ============================================================
+   REMOVE EVIDENCE BOTTOM GAP
+   Parent sheet and photograph must share the exact same height.
+   ============================================================ */
+
+.route-film-sheet {
+  --route-evidence-height:
+    calc(100svh - 9rem);
+
+  height:
+    var(--route-evidence-height)
+    !important;
+
+  min-height:
+    var(--route-evidence-height)
+    !important;
+
+  max-height:
+    var(--route-evidence-height)
+    !important;
+
+  padding: 0 !important;
+
+  background: transparent !important;
+}
+
+
+.route-film-sheet .route-film-photo,
+.route-film-sheet.split .route-film-photo {
+  top: 0 !important;
+  bottom: 0 !important;
+
+  height:
+    var(--route-evidence-height)
+    !important;
+
+  min-height:
+    var(--route-evidence-height)
+    !important;
+
+  max-height:
+    var(--route-evidence-height)
+    !important;
+
+  margin: 0 !important;
+}
+
+
+/*
+   Keep the right-hand card centred relative to the exact
+   same visual height.
+*/
+
+.route-film-sheet.split .route-film-copy {
+  top:
+    calc(
+      var(--route-evidence-height) / 2
+    )
+    !important;
+}
+
+
+@media (max-width:850px) {
+
+  .route-film-sheet {
+    --route-evidence-height:
+      52svh;
+
+    height:
+      auto !important;
+
+    min-height:
+      0 !important;
+
+    max-height:
+      none !important;
+  }
+
+  .route-film-sheet .route-film-photo,
+  .route-film-sheet.split .route-film-photo {
+    height:
+      var(--route-evidence-height)
+      !important;
+
+    min-height:
+      var(--route-evidence-height)
+      !important;
+
+    max-height:
+      var(--route-evidence-height)
+      !important;
+  }
+}
+
+
+/* ============================================================
+   EVIDENCE BAR — FLUSH TO PHOTO BOTTOM
+   ============================================================ */
+
+.route-film-photo-meta {
+  bottom: 0 !important;
+}
+
+/* ============================================================
+   ROUTE MICRO-TEXT SIZE BOOST
+   Makes small interface / evidence labels easier to read.
+   ============================================================ */
+
+/* Intro labels such as:
+   RQ 03 / Social sustainability · Accessibility
+*/
+.route-film-topline .mono,
+.route-film-enter > span,
+.route-film-source > span {
+  font-size: .72rem !important;
+}
+
+
+/* Floating 01 / 09 stage counter */
+.route-film-place span {
+  font-size: .67rem !important;
+}
+
+
+/* 3D FIELD WALK + timestamp */
+.route-film-status {
+  font-size: .65rem !important;
+}
+
+
+/* PRIMARY FIELD EVIDENCE + VIEW EVIDENCE */
+.route-film-photo-meta {
+  font-size: .66rem !important;
+}
+
+
+/* 03 / WALKWAY, 08 / LANDMARK, etc. */
+.route-film-copy-index {
+  font-size: .68rem !important;
+}
+
+
+/* WHAT THIS SHOWS */
+.route-film-analysis span {
+  font-size: .66rem !important;
+}
+
+
+/* SCROLL TO WALK */
+.route-film-scroll {
+  font-size: .63rem !important;
+}
+
+
+/* Film-roll micro labels */
+.route-evidence-index-title span {
+  font-size: .65rem !important;
+}
+
+.route-evidence-frame-copy span {
+  font-size: .59rem !important;
+}
+
+.route-evidence-frame-number {
+  font-size: .58rem !important;
+}
+
+
+/* JTC SOURCE ↗ */
+.route-film-source a {
+  font-size: .65rem !important;
+}
+
+
+/* ============================================================
+   ROUTE PHOTO — TRUE EDGE-TO-EDGE FIX
+   Actual bitmap must touch every edge of its frame.
+   ============================================================ */
+
+.route-film-photo {
+  position: relative !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+}
+
+
+/*
+   Some stages may use a <picture> / wrapper around the image.
+   Force that wrapper to fill the entire frame too.
+*/
+
+.route-film-photo > picture,
+.route-film-photo > .route-film-photo-image,
+.route-film-photo > .route-film-media {
+  position: absolute !important;
+
+  inset: 0 !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  display: block !important;
+}
+
+
+/*
+   The ACTUAL image now fills from:
+   top edge -> bottom edge
+   left edge -> right edge.
+*/
+
+.route-film-photo > img,
+.route-film-photo > picture > img,
+.route-film-photo > .route-film-photo-image > img,
+.route-film-photo > .route-film-media > img {
+  position: absolute !important;
+
+  inset: 0 !important;
+
+  display: block !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  min-width: 100% !important;
+  min-height: 100% !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  object-fit: cover !important;
+  object-position: center center !important;
+
+  vertical-align: top !important;
+}
+
+
+/*
+   Evidence bar is simply an overlay ON the photograph.
+   It must not take up layout height.
+*/
+
+.route-film-photo-meta {
+  position: absolute !important;
+
+  left: 1rem !important;
+  right: 1rem !important;
+  bottom: 0 !important;
+
+  margin: 0 !important;
+
+  z-index: 5 !important;
+}
+
+
+/* ============================================================
+   TRUE VIEWPORT-HEIGHT EVIDENCE V2
+
+   Previous rules still deliberately left:
+     1.5rem at the top
+     ~5rem+ at the bottom
+
+   Remove those completely.
+
+   The photographic canvas now starts immediately under the
+   site's fixed 4rem navigation bar and reaches the bottom
+   edge of the viewport.
+   ============================================================ */
+
+.route-film-sheet {
+  --route-evidence-height:
+    calc(100svh - 4rem) !important;
+
+  top: 0 !important;
+
+  height:
+    var(--route-evidence-height) !important;
+
+  min-height:
+    var(--route-evidence-height) !important;
+
+  max-height:
+    var(--route-evidence-height) !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  overflow: visible !important;
+}
+
+
+/* PHOTO FRAME = EXACTLY THE FULL AVAILABLE HEIGHT */
+
+.route-film-sheet .route-film-photo,
+.route-film-sheet.split .route-film-photo {
+  position: absolute !important;
+
+  inset:
+    0 auto auto 0 !important;
+
+  height:
+    var(--route-evidence-height) !important;
+
+  min-height:
+    var(--route-evidence-height) !important;
+
+  max-height:
+    var(--route-evidence-height) !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  border: 0 !important;
+
+  overflow: hidden !important;
+}
+
+
+/* ACTUAL BITMAP FILLS EVERY PIXEL */
+
+.route-film-sheet .route-film-photo img,
+.route-film-sheet .route-film-photo picture,
+.route-film-sheet .route-film-photo picture img {
+  display: block !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  min-width: 100% !important;
+  min-height: 100% !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  object-fit: cover !important;
+  object-position: center center !important;
+
+  border: 0 !important;
+}
+
+
+/*
+   BLACK EVIDENCE STRIP ALSO TOUCHES
+   LEFT + RIGHT + BOTTOM EDGES.
+*/
+
+.route-film-photo-meta {
+  position: absolute !important;
+
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+
+  width: 100% !important;
+
+  margin: 0 !important;
+
+  z-index: 10 !important;
+}
+
+
+/*
+   Centre analysis relative to the NEW full viewport height.
+*/
+
+.route-film-sheet.split .route-film-copy {
+  top:
+    calc(
+      var(--route-evidence-height) / 2
+    ) !important;
+
+  transform:
+    translate3d(
+      var(--evidence-copy-x,0vw),
+      -50%,
+      0
+    ) !important;
+}
+
+
+/* mobile keeps stacked layout */
+
+@media (max-width:850px) {
+
+  .route-film-sheet {
+    --route-evidence-height:
+      calc(100svh - 4rem) !important;
+  }
+
+  .route-film-sheet.split .route-film-copy {
+    top: 54svh !important;
+
+    transform:
+      translate3d(
+        var(--evidence-copy-x,0vw),
+        0,
+        0
+      ) !important;
+  }
+}
+
+
+/* ============================================================
+   ACCESSIBILITY END PANEL — TEXT ALIGNMENT MICRO-FIX
+   ============================================================ */
+
+/*
+   Give the black conclusion panel a real internal gutter.
+*/
+
+.route-film-end {
+  box-sizing: border-box !important;
+
+  padding-left: clamp(2rem, 3.2vw, 3.5rem) !important;
+  padding-right: clamp(2rem, 3.2vw, 3.5rem) !important;
+}
+
+
+/*
+   Stop the ARRIVAL label from sitting against / clipping into
+   the left border.
+*/
+
+.route-film-end .mono,
+.route-film-end > span,
+.route-film-end [class*="eyebrow"],
+.route-film-end [class*="label"] {
+  margin-left: 0 !important;
+}
+
+
+/*
+   Keep the heading and explanatory paragraph vertically
+   aligned as one deliberate composition.
+*/
+
+.route-film-end h2 {
+  margin-top: 0 !important;
+}
+
+.route-film-end p {
+  margin-top: .35rem !important;
+}
+
+
+/*
+   Prevent any end-panel text from extending outside the panel.
+*/
+
+.route-film-end > * {
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
