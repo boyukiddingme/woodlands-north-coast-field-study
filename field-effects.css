@@ -1,0 +1,23 @@
+/* Decorative layers only: no content, dimensions, image crops or map rules. */
+.field-fx-background { position: relative; isolation: isolate; }
+.field-fx-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none !important; user-select: none; z-index: -1; }
+.hero .field-fx-canvas { z-index: -1; }
+.field-fx-reveal { z-index: 1; border-radius: .2rem; }
+.hero.field-fx-ready .hero-grain { animation: none; opacity: .035; }
+body.texture-off .field-fx-canvas,
+body.owner-editing .field-fx-canvas { visibility: hidden; }
+body.texture-off .hero.field-fx-ready .hero-grain { opacity: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .field-fx-reveal { display: none; }
+}
+
+/* Separate contexts and DOM layers: never target ArcGIS or its canvas. */
+.field-gpu-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none !important; user-select: none; }
+[data-field-gpu="active"] > .field-fx-canvas { visibility: hidden; }
+.field-gpu-depth { z-index: 1; opacity: 0; border-radius: .2rem; filter: saturate(.82); }
+.field-gpu-depth-active > .field-gpu-depth { opacity: 1; filter: saturate(1) contrast(1.03); }
+body.texture-off .field-gpu-canvas,
+body.owner-editing .field-gpu-canvas { visibility: hidden; }
+@media (prefers-reduced-motion: reduce), (hover: none), (pointer: coarse) {
+  .field-gpu-depth { display: none; }
+}
