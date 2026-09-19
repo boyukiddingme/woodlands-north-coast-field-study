@@ -1154,6 +1154,240 @@
       .fieldwork .evidence-photo .evidence-visual {order:1 !important;width:100% !important;}
       .fieldwork .evidence-reading {order:2 !important;width:100% !important;}
     }
+
+    /* EMERGENCY V44 EVIDENCE LAYOUT REPAIR */
+
+    /*
+       Task 4 made the evidence readable without clicking, which we keep.
+       These rules only prevent its two-column layout from creating
+       stretched black/empty panels.
+    */
+    .fieldwork .evidence-photo[data-photo] {
+      background: transparent !important;
+      min-height: 0 !important;
+      height: auto !important;
+      grid-template-rows: auto auto !important;
+      align-items: start !important;
+      align-content: start !important;
+    }
+
+    /*
+       Do not stretch the image/annotation viewport to the combined height
+       of all of the text in the right column.
+    */
+    .fieldwork .evidence-photo .evidence-visual {
+      align-self: start !important;
+      min-height: 0 !important;
+      height: max-content !important;
+      background: transparent !important;
+      overflow: visible !important;
+    }
+
+    .fieldwork .evidence-photo[data-photo] .evidence-visual img {
+      display: block !important;
+      position: static !important;
+      width: 100% !important;
+      height: auto !important;
+      max-height: none !important;
+      object-fit: contain !important;
+      background: transparent !important;
+      transform: none !important;
+    }
+
+    /*
+       Old route-gallery styling used a black figure background. That becomes
+       a giant black rectangle when Task 4's analysis column is taller than
+       the photograph. Keep the photo + analysis layout, but remove the slab.
+    */
+    .fieldwork .route-gallery .evidence-photo[data-photo] {
+      background: transparent !important;
+    }
+
+    /*
+       Tenant studies are long two-column sections. Keep the directory
+       evidence visible beside the long tenant analysis instead of allowing
+       the left side to disappear and become a huge empty area.
+    */
+    @media (min-width: 801px) {
+      .fieldwork .tenant-study {
+        align-items: start !important;
+      }
+
+      .fieldwork .tenant-study .tenant-photo {
+        position: sticky !important;
+        top: 5rem !important;
+        align-self: start !important;
+      }
+
+      /*
+         The tenant heading should read as analysis, not as an enormous
+         detached editorial display.
+      */
+      .fieldwork .tenant-copy h3 {
+        font-size: clamp(2rem, 3vw, 3.6rem) !important;
+        line-height: 1 !important;
+        letter-spacing: -.03em !important;
+      }
+    }
+
+    /*
+       Preserve Task 4's simple stacked mobile reading order.
+    */
+    @media (max-width: 800px) {
+      .fieldwork .tenant-study .tenant-photo {
+        position: static !important;
+        top: auto !important;
+      }
+
+      .fieldwork .evidence-photo[data-photo] {
+        height: auto !important;
+        background: transparent !important;
+      }
+
+      .fieldwork .evidence-photo .evidence-visual {
+        height: auto !important;
+        min-height: 0 !important;
+      }
+    }
+
+
+    /* V44 TENANT STICKY + EVIDENCE MOTION RESTORE */
+
+    /*
+       Restore the original tenant-directory storytelling:
+       photograph stays on the left while the analytical copy scrolls
+       on the right. The sticky photograph releases when its tenant
+       section ends, allowing the next directory to take over.
+    */
+    @media (min-width: 901px) {
+      .fieldwork .tenant-study {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1.08fr) minmax(22rem, .92fr) !important;
+        gap: clamp(2rem, 4vw, 4rem) !important;
+        align-items: start !important;
+        overflow: visible !important;
+      }
+
+      .fieldwork .tenant-study .tenant-photo.evidence-photo[data-photo] {
+        display: block !important;
+        grid-column: 1 !important;
+        grid-row: 1 !important;
+
+        position: sticky !important;
+        top: 5.25rem !important;
+
+        align-self: start !important;
+        min-height: 0 !important;
+        height: auto !important;
+        margin: 0 !important;
+        overflow: visible !important;
+        background: transparent !important;
+      }
+
+      .fieldwork .tenant-study .tenant-copy {
+        grid-column: 2 !important;
+        grid-row: 1 !important;
+        align-self: start !important;
+        min-width: 0 !important;
+        padding-top: .2rem !important;
+      }
+
+      .fieldwork .tenant-study .tenant-photo .evidence-visual {
+        width: 100% !important;
+        min-height: 0 !important;
+        height: auto !important;
+        overflow: hidden !important;
+        border-radius: .2rem;
+      }
+
+      .fieldwork .tenant-study .tenant-photo figcaption {
+        display: block !important;
+        position: static !important;
+        width: 100% !important;
+        margin: .7rem 0 0 !important;
+        padding: 0 !important;
+        color: var(--soft) !important;
+        background: transparent !important;
+        font-size: .78rem !important;
+        line-height: 1.5 !important;
+      }
+
+      .fieldwork .tenant-study .tenant-photo figcaption strong {
+        color: var(--ink) !important;
+        font-size: .72rem !important;
+        margin-bottom: .2rem !important;
+      }
+
+      /*
+         The full analysis already exists in tenant-copy on the right.
+         Hide the duplicated Task-4 generated reading beneath the photo.
+      */
+      .fieldwork .tenant-study .tenant-photo .evidence-reading {
+        display: none !important;
+      }
+
+      .fieldwork .tenant-study .tenant-photo .evidence-inspect {
+        padding: .55rem 0 0 !important;
+      }
+    }
+
+    /*
+       Bring some life back to the evidence photographs while retaining
+       the readable Task-4 photo + analysis layouts.
+    */
+    @media (prefers-reduced-motion: no-preference) {
+      .fieldwork .evidence-photo.image-enter {
+        opacity: .38 !important;
+        transform: translate3d(0, 2.5rem, 0) scale(.985) !important;
+        transition:
+          opacity .65s ease,
+          transform .8s cubic-bezier(.18,.8,.2,1) !important;
+      }
+
+      .fieldwork .evidence-photo.image-enter.in-view {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+
+      .fieldwork .evidence-photo[data-photo] .evidence-visual {
+        overflow: hidden !important;
+      }
+
+      .fieldwork .evidence-photo[data-photo] .evidence-visual img {
+        transform: scale(1) !important;
+        filter: saturate(.88) !important;
+        transition:
+          transform .6s cubic-bezier(.2,.8,.2,1),
+          filter .4s ease !important;
+      }
+
+      .fieldwork .evidence-photo[data-photo] .evidence-visual:hover img,
+      .fieldwork .evidence-photo[data-photo] .evidence-visual:focus-visible img {
+        transform: scale(1.018) !important;
+        filter: saturate(1) contrast(1.015) !important;
+      }
+    }
+
+    /*
+       Mobile remains simple and non-sticky.
+    */
+    @media (max-width: 900px) {
+      .fieldwork .tenant-study .tenant-photo.evidence-photo[data-photo] {
+        position: static !important;
+        grid-column: 1 !important;
+        grid-row: auto !important;
+      }
+
+      .fieldwork .tenant-study .tenant-copy {
+        grid-column: 1 !important;
+        grid-row: auto !important;
+      }
+
+      .fieldwork .tenant-study .tenant-photo .evidence-reading {
+        display: block !important;
+      }
+    }
+
 </style>
 <link rel="stylesheet" href="field-effects.css%3Fv=4.css">
 <link rel="stylesheet" href="header-music.css">
