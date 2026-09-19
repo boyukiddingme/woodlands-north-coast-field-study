@@ -1,0 +1,751 @@
+/* ============================================================
+   RESULTS V6 — ISOLATED RENDERER
+
+   IMPORTANT:
+   These classes deliberately do NOT use:
+   .evidence-photo
+   .photo-grid
+   .system-card
+   .tenant-study
+
+   Therefore legacy V44 rules cannot corrupt this layout.
+   ============================================================ */
+
+
+/* Original source content remains in DOM for its modal logic,
+   but is removed visually after V6 clones it. */
+
+.v6-source-hidden {
+  display: none !important;
+}
+
+
+/* ============================================================
+   COMMON
+   ============================================================ */
+
+.v6-results,
+.v6-results * {
+  box-sizing: border-box;
+}
+
+
+.v6-results {
+  width: 100%;
+}
+
+
+.v6-eyebrow {
+  display: inline-flex;
+
+  width: fit-content;
+
+  margin-bottom: 1rem;
+
+  padding: .42rem .62rem;
+
+  color: #315f3d;
+
+  border: 1px solid #64846b;
+
+  font:
+    .70rem/1.35
+    "DM Mono",
+    monospace;
+
+  letter-spacing: .065em;
+
+  text-transform: uppercase;
+}
+
+
+.v6-title {
+  max-width: 17ch;
+
+  margin:
+    0 0 1.25rem;
+
+  font:
+    300
+    clamp(2.9rem,4.3vw,5rem)/.97
+    "Newsreader",
+    serif;
+
+  letter-spacing: -.035em;
+}
+
+
+.v6-body {
+  max-width: 54rem;
+
+  margin: 0;
+
+  color: #74766e;
+
+  font-size:
+    clamp(1rem,1.15vw,1.1rem);
+
+  line-height: 1.72;
+}
+
+
+
+/* ============================================================
+   MEDIA
+   ============================================================ */
+
+.v6-media {
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+
+  appearance: none;
+
+  color: white;
+
+  background: #11130f;
+
+  border: 0;
+
+  font: inherit;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+
+.v6-media img {
+  position: absolute;
+
+  inset: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  transition:
+    transform .55s
+    cubic-bezier(.2,.8,.2,1),
+    filter .35s ease;
+}
+
+
+.v6-media:hover img,
+.v6-media:focus-visible img {
+  transform: scale(1.018);
+
+  filter:
+    saturate(1.03)
+    contrast(1.015);
+}
+
+
+.v6-media:focus-visible {
+  outline:
+    2px solid
+    #c8ff3d;
+
+  outline-offset: 4px;
+}
+
+
+.v6-media-caption {
+  position: absolute;
+
+  z-index: 3;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  padding:
+    5rem 1.15rem
+    1.05rem;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(17,19,15,.14) 28%,
+      rgba(17,19,15,.91) 100%
+    );
+
+  pointer-events: none;
+}
+
+
+.v6-media-caption strong {
+  display: block;
+
+  margin-bottom: .3rem;
+
+  color: #c8ff3d;
+
+  font:
+    .69rem/1.4
+    "DM Mono",
+    monospace;
+
+  letter-spacing: .06em;
+
+  text-transform: uppercase;
+}
+
+
+.v6-media-caption span {
+  color:
+    rgba(255,255,255,.92);
+
+  font-size: .88rem;
+
+  line-height: 1.45;
+}
+
+
+.v6-open {
+  position: absolute;
+
+  z-index: 5;
+
+  top: 1rem;
+  right: 1rem;
+
+  padding:
+    .68rem .86rem;
+
+  color: white;
+
+  background:
+    rgba(17,19,15,.82);
+
+  border:
+    1px solid
+    rgba(255,255,255,.32);
+
+  font:
+    .66rem/1
+    "DM Mono",
+    monospace;
+
+  letter-spacing: .065em;
+
+  text-transform: uppercase;
+
+  pointer-events: none;
+}
+
+
+@media
+(hover:hover)
+and
+(pointer:fine) {
+
+  .v6-media {
+    cursor: none;
+  }
+
+}
+
+
+
+/* ============================================================
+   GREENERY
+
+   ┌────────────────┬───────────────┐
+   │ courtyard      │ vertical      │
+   ├────────────────┴───────────────┤
+   │ landscape + seating            │
+   └────────────────────────────────┘
+   ============================================================ */
+
+.v6-greenery {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+  gap: 1rem;
+
+  width: 100%;
+}
+
+
+.v6-greenery
+.v6-media {
+  height:
+    clamp(27rem,53vh,38rem);
+}
+
+
+.v6-greenery
+.v6-media:nth-child(3) {
+  grid-column: 1 / -1;
+
+  height:
+    clamp(30rem,60vh,43rem);
+}
+
+
+
+/* ============================================================
+   DAILY SYSTEMS
+   ============================================================ */
+
+.v6-systems {
+  width: 100%;
+}
+
+
+.v6-system {
+  width: 100%;
+
+  margin:
+    0 0
+    clamp(7rem,10vw,10rem);
+
+  padding: 0;
+}
+
+
+.v6-system-head {
+  margin-bottom: 2.5rem;
+}
+
+
+
+/* ============================================================
+   CYCLING
+
+   Intro
+   ↓
+   huge primary photo
+   ↓
+   four equal support photographs
+   ============================================================ */
+
+.v6-cycle-main {
+  height:
+    clamp(30rem,63vh,44rem);
+
+  margin-bottom: 1rem;
+}
+
+
+.v6-cycle-support {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4,minmax(0,1fr));
+
+  gap: 1rem;
+}
+
+
+.v6-cycle-support
+.v6-media {
+  height:
+    clamp(18rem,31vh,24rem);
+}
+
+
+
+/* ============================================================
+   FOOD
+   image left / explanation right
+   ============================================================ */
+
+.v6-system-row {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0,1.15fr)
+    minmax(22rem,.85fr);
+
+  gap:
+    clamp(3rem,6vw,7rem);
+
+  align-items: center;
+}
+
+
+.v6-system-row.reverse {
+  grid-template-columns:
+    minmax(22rem,.85fr)
+    minmax(0,1.15fr);
+}
+
+
+.v6-system-row-media {
+  min-width: 0;
+}
+
+
+.v6-system-row-media
+.v6-media {
+  height:
+    clamp(29rem,60vh,42rem);
+}
+
+
+.v6-system-row.reverse
+.v6-system-row-media {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+
+.v6-system-row.reverse
+.v6-system-row-copy {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+
+
+/* ============================================================
+   LOGISTICS
+
+   heading + explanation first
+   ↓
+   wide service entrance | smaller waste image
+   ============================================================ */
+
+.v6-logistics-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0,1.65fr)
+    minmax(19rem,.65fr);
+
+  gap: 1rem;
+
+  margin-top: 2.6rem;
+}
+
+
+.v6-logistics-grid
+.v6-media {
+  height:
+    clamp(28rem,56vh,40rem);
+}
+
+
+
+/* ============================================================
+   TENANT STUDIES
+
+   No surrounding box.
+   No central border.
+   Explicit whitespace between image and copy.
+
+   image sticks while copy scrolls.
+   ============================================================ */
+
+.v6-tenants {
+  width: 100%;
+}
+
+
+.v6-tenant {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0,.96fr)
+    minmax(0,1.04fr);
+
+  gap:
+    clamp(4rem,7vw,8rem);
+
+  align-items: start;
+
+  width: 100%;
+
+  margin:
+    0 0
+    clamp(8rem,11vw,12rem);
+
+  padding:
+    clamp(4rem,6vw,6rem)
+    0;
+
+  border-top:
+    1px solid
+    rgba(17,19,15,.14);
+}
+
+
+.v6-tenant-media-wrap {
+  position: sticky;
+
+  top: 5.4rem;
+
+  min-width: 0;
+}
+
+
+.v6-tenant-media {
+  height:
+    min(72svh,46rem);
+
+  background: #11130f;
+}
+
+
+.v6-tenant-media img {
+  object-fit: contain;
+
+  background: #11130f;
+}
+
+
+.v6-tenant-copy {
+  min-width: 0;
+
+  padding:
+    .25rem 0
+    2rem;
+}
+
+
+.v6-tenant-copy h3 {
+  max-width: 12ch;
+
+  margin:
+    1.15rem 0
+    1.5rem;
+
+  font:
+    300
+    clamp(2.8rem,3.75vw,4.45rem)/.99
+    "Newsreader",
+    serif;
+
+  letter-spacing: -.032em;
+}
+
+
+.v6-tenant-copy > p {
+  color: #74766e;
+
+  font-size:
+    clamp(1rem,1.08vw,1.06rem);
+
+  line-height: 1.68;
+}
+
+
+.v6-tenant
+.tenant-list {
+  margin:
+    2rem 0;
+
+  border-top:
+    1px solid
+    rgba(17,19,15,.18);
+}
+
+
+.v6-tenant
+.tenant-list div {
+  display: grid;
+
+  grid-template-columns:
+    minmax(12rem,.9fr)
+    minmax(0,1.1fr);
+
+  gap: 1.5rem;
+
+  padding:
+    .9rem 0;
+
+  border-bottom:
+    1px solid
+    rgba(17,19,15,.15);
+}
+
+
+.v6-tenant
+.tenant-list strong {
+  font-size: .86rem;
+}
+
+
+.v6-tenant
+.tenant-list span {
+  color: #74766e;
+
+  font-size: .86rem;
+
+  line-height: 1.5;
+}
+
+
+.v6-tenant
+.tenant-sources {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: .55rem;
+
+  margin-top: 1.5rem;
+}
+
+
+.v6-tenant
+.tenant-sources a {
+  padding:
+    .5rem .62rem;
+
+  color: inherit;
+
+  border:
+    1px solid
+    rgba(17,19,15,.22);
+
+  font:
+    .64rem
+    "DM Mono",
+    monospace;
+
+  text-decoration: none;
+
+  text-transform: uppercase;
+}
+
+
+/* Alternate 7 North Coast */
+
+.v6-tenant.reverse
+.v6-tenant-media-wrap {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+
+.v6-tenant.reverse
+.v6-tenant-copy {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width:900px) {
+
+  .v6-greenery,
+  .v6-cycle-support,
+  .v6-system-row,
+  .v6-system-row.reverse,
+  .v6-logistics-grid,
+  .v6-tenant {
+    grid-template-columns: 1fr;
+  }
+
+
+  .v6-greenery
+  .v6-media:nth-child(3) {
+    grid-column: 1;
+  }
+
+
+  .v6-cycle-support {
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
+  }
+
+
+  .v6-system-row.reverse
+  .v6-system-row-media,
+  .v6-system-row.reverse
+  .v6-system-row-copy,
+
+  .v6-tenant.reverse
+  .v6-tenant-media-wrap,
+  .v6-tenant.reverse
+  .v6-tenant-copy {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+
+  .v6-tenant-media-wrap {
+    position: relative;
+
+    top: auto;
+  }
+
+}
+
+
+@media (max-width:620px) {
+
+  .v6-cycle-support {
+    grid-template-columns: 1fr;
+  }
+
+
+  .v6-greenery .v6-media,
+  .v6-cycle-main,
+  .v6-cycle-support .v6-media,
+  .v6-system-row-media .v6-media,
+  .v6-logistics-grid .v6-media,
+  .v6-tenant-media {
+    height:
+      min(65svh,34rem);
+  }
+
+}
+
+
+/* ============================================================
+   TENANT DUPLICATION FIX
+   Keep ONLY the two V6-rendered directory studies.
+   ============================================================ */
+
+html.results-v6-ready #tenant-one,
+html.results-v6-ready #tenant-evidence {
+  display: none !important;
+
+  visibility: hidden !important;
+
+  height: 0 !important;
+  min-height: 0 !important;
+  max-height: 0 !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  border: 0 !important;
+
+  overflow: hidden !important;
+}
+
+
+/* ============================================================
+   V8 — SOURCE VAULT
+   Original evidence stays alive for modal click handlers,
+   but can NEVER participate in document layout.
+   ============================================================ */
+
+#v6-source-vault,
+#v6-source-vault * {
+  display: none !important;
+}
+

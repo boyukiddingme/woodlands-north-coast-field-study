@@ -1,0 +1,2914 @@
+/* ============================================================
+   WOODLANDS NORTH COAST — MAIN SITE POLISH
+   Accessibility / #route mechanics deliberately excluded.
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   01 — THINNER INTERNAL HEADER FOR ARCGIS COLLECTION EMBED
+   ------------------------------------------------------------ */
+
+.site-nav {
+  padding: .42rem 1.35rem !important;
+}
+
+.brand-mark {
+  width: 1.95rem !important;
+}
+
+.nav-link {
+  padding: .48rem .82rem !important;
+}
+
+
+/* ------------------------------------------------------------
+   02 — HERO QUESTION: PERMANENT LIME HIGHLIGHT
+   ------------------------------------------------------------ */
+
+.hero-question editable-text {
+  display: inline !important;
+
+  color: var(--ink) !important;
+  background: var(--acid) !important;
+
+  padding: .015em .08em !important;
+
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+
+  box-shadow:
+    .10em 0 0 var(--acid),
+    -.10em 0 0 var(--acid);
+}
+
+
+/* ------------------------------------------------------------
+   03 — ENQUIRY INTRO
+   Explanation slightly further left.
+   RQs wider + more prominent.
+   ------------------------------------------------------------ */
+
+.enquiry-grid {
+  grid-template-columns:
+    minmax(0, .88fr)
+    minmax(31rem, 1.12fr) !important;
+
+  gap: clamp(2.5rem, 5vw, 5.5rem) !important;
+  align-items: center !important;
+}
+
+.manifesto-note {
+  width: min(36rem, 100%) !important;
+
+  margin:
+    2.5rem auto
+    0 0 !important;
+
+  font-size:
+    clamp(1.02rem, 1.28vw, 1.18rem) !important;
+
+  line-height: 1.7 !important;
+}
+
+.research-questions li {
+  grid-template-columns:
+    5.4rem 1fr !important;
+
+  gap: 1.25rem !important;
+
+  padding:
+    1.45rem 0 !important;
+}
+
+.research-questions > li > span {
+  font-size: .74rem !important;
+  letter-spacing: .07em !important;
+}
+
+.research-questions p {
+  max-width: 28ch !important;
+
+  font-size:
+    clamp(1.42rem, 2vw, 1.95rem) !important;
+
+  line-height: 1.12 !important;
+}
+
+.research-questions p > span {
+  font-size: .72rem !important;
+}
+
+
+/* ------------------------------------------------------------
+   04 — POLICY / METHOD MICROTEXT
+   No important label should be microscopic.
+   ------------------------------------------------------------ */
+
+.policy-intro .mono,
+.policy-stack summary > span,
+.policy-detail a,
+.literature-lens span {
+  font-size: .72rem !important;
+}
+
+.policy-detail p {
+  font-size:
+    clamp(1rem, 1.15vw, 1.12rem) !important;
+
+  line-height: 1.75 !important;
+}
+
+.method .mono,
+.method-item .num {
+  font-size: .74rem !important;
+}
+
+.method-item h4,
+.method-item h3 {
+  font-size:
+    clamp(1.25rem, 1.6vw, 1.55rem) !important;
+
+  line-height: 1.2 !important;
+}
+
+.method-item p {
+  font-size:
+    clamp(1rem, 1.12vw, 1.08rem) !important;
+
+  line-height: 1.78 !important;
+}
+
+.method-item {
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+}
+
+
+/* ------------------------------------------------------------
+   05 — MINIMISE "WHAT I FOUND..." INTRO
+   More page weight goes to actual Results & Discussion.
+   ------------------------------------------------------------ */
+
+.fieldwork {
+  padding-top: 3.5rem !important;
+  padding-bottom: 0 !important;
+}
+
+.fieldwork > .section-head {
+  min-height: 0 !important;
+
+  margin: 0 0 1.7rem !important;
+  padding: 0 !important;
+}
+
+.fieldwork > .section-head h2 {
+  font-size:
+    clamp(3rem, 5vw, 5.4rem) !important;
+
+  line-height: .98 !important;
+}
+
+.fieldwork > .section-head .section-index {
+  font-size: .74rem !important;
+}
+
+.rq-links {
+  margin: 1.5rem 0 1.8rem !important;
+}
+
+.rq-links a {
+  font-size: .98rem !important;
+  padding: .85rem 1.15rem !important;
+}
+
+.field-meta {
+  margin-bottom:
+    clamp(4rem, 6vw, 6rem) !important;
+}
+
+
+/* ------------------------------------------------------------
+   06 — RESULTS / DISCUSSION GET MORE VISUAL WEIGHT
+   #route mechanics untouched.
+   ------------------------------------------------------------ */
+
+.fieldwork .chapter:not(#route) {
+  padding:
+    clamp(6.5rem, 9vw, 10rem)
+    0 !important;
+}
+
+.fieldwork .chapter:not(#route) .chapter-head {
+  margin-bottom:
+    clamp(3.5rem, 6vw, 6rem) !important;
+}
+
+.fieldwork .chapter:not(#route) .chapter-head > .mono {
+  color: #46503e !important;
+
+  font-size: .82rem !important;
+  line-height: 1.45 !important;
+  letter-spacing: .065em !important;
+}
+
+.fieldwork .chapter:not(#route) .chapter-head h2 {
+  font-size:
+    clamp(3.8rem, 6.4vw, 7.4rem) !important;
+}
+
+
+/*
+   User-requested RQ label enlargement in approved route.
+   This changes ONLY text size — no route layout/timing.
+*/
+
+.route-film-chapter .route-film-topline .mono {
+  font-size: .84rem !important;
+}
+
+
+/* ------------------------------------------------------------
+   07 — ALL IMPORTANT MICROCOPY LARGE ENOUGH TO BE USEFUL
+   ------------------------------------------------------------ */
+
+.fieldwork .evidence-label {
+  font-size: .72rem !important;
+  line-height: 1.35 !important;
+}
+
+.source-bridge > span,
+.source-bridge > a,
+.rain-condition,
+.sequence-index,
+.tenant-sources a,
+.tenant-copy > .evidence-label,
+.secondary-chart > .mono,
+.estate-compare article > span,
+.estate-compare article > a,
+.transfer-test article > span,
+.note-card .evidence-label {
+  font-size: .72rem !important;
+  line-height: 1.4 !important;
+  letter-spacing: .055em !important;
+}
+
+.rain-condition span {
+  font-size: .68rem !important;
+}
+
+.field-meta span {
+  font-size: .67rem !important;
+}
+
+
+/* ------------------------------------------------------------
+   08 — SHADE COMPARISON BECOMES VERTICAL
+   ------------------------------------------------------------ */
+
+#shade .comparison {
+  display: block !important;
+
+  background: transparent !important;
+}
+
+#shade .comparison-card {
+  display: block !important;
+
+  width: 100% !important;
+
+  min-height: 0 !important;
+
+  margin:
+    0 0
+    clamp(7rem, 10vw, 11rem) !important;
+
+  padding:
+    clamp(2rem, 4vw, 4rem) !important;
+
+  overflow: visible !important;
+}
+
+#shade .comparison-card > h3 {
+  max-width: 18ch !important;
+
+  margin-bottom: 2rem !important;
+
+  font-size:
+    clamp(3rem, 5.6vw, 6.2rem) !important;
+
+  line-height: .97 !important;
+}
+
+#shade .comparison-stats {
+  max-width: 52rem !important;
+
+  margin-bottom: 3rem !important;
+}
+
+
+/* ------------------------------------------------------------
+   09 — RAIN SEQUENCE IS VERTICAL
+   ------------------------------------------------------------ */
+
+#rain-gardens .sequence,
+#rain-gardens .rain-comparison {
+  display: block !important;
+}
+
+#rain-gardens .rain-comparison > div {
+  margin:
+    0 0
+    clamp(5rem, 8vw, 8rem) !important;
+}
+
+#rain-gardens .rain-condition {
+  margin-bottom: 1rem !important;
+
+  font-size: .82rem !important;
+}
+
+
+/* ------------------------------------------------------------
+   10 — DAILY SYSTEMS VERTICAL
+   Cycling -> food -> energy -> underground logistics
+   ------------------------------------------------------------ */
+
+#daily-systems .systems-grid {
+  display: block !important;
+}
+
+#daily-systems .system-card {
+  display: block !important;
+
+  width: 100% !important;
+
+  margin:
+    0 0
+    clamp(8rem, 11vw, 12rem) !important;
+
+  overflow: visible !important;
+}
+
+#daily-systems .system-card > h3 {
+  max-width: 18ch !important;
+
+  font-size:
+    clamp(3rem, 5vw, 5.8rem) !important;
+
+  line-height: .98 !important;
+}
+
+#daily-systems .system-card > p {
+  max-width: 54rem !important;
+
+  font-size:
+    clamp(1rem, 1.22vw, 1.15rem) !important;
+
+  line-height: 1.72 !important;
+}
+
+
+/* ============================================================
+   11 — CINEMATIC EVIDENCE STORY
+
+   scroll in:
+     image rises from below
+     ->
+     full available screen
+     ->
+     image contracts left/right
+     ->
+     analysis appears opposite
+     ->
+     near exit image expands again
+     ->
+     normal scrolling resumes
+
+   JS variables reverse naturally when scrolling backwards.
+   ============================================================ */
+
+@media (min-width: 801px) {
+
+  .fieldwork .polish-scrolly {
+    position: relative !important;
+
+    display: block !important;
+
+    width: 100% !important;
+
+    min-height: 215svh !important;
+
+    margin:
+      2rem 0
+      clamp(5rem, 8vw, 8rem) !important;
+
+    padding: 0 !important;
+
+    overflow: visible !important;
+
+    opacity: 1 !important;
+    transform: none !important;
+
+    transition: none !important;
+  }
+
+
+  /* PHOTO STAGE */
+
+  .fieldwork .polish-scrolly > .evidence-visual {
+    position: sticky !important;
+
+    z-index: 4 !important;
+
+    top: 3.8rem !important;
+
+    display: block !important;
+
+    width:
+      var(--polish-visual-width, 100%) !important;
+
+    height:
+      calc(100svh - 4.4rem) !important;
+
+    margin:
+      0 auto
+      0 0 !important;
+
+    padding: 0 !important;
+
+    overflow: hidden !important;
+
+    background: #11130f !important;
+
+    opacity:
+      var(--polish-visual-opacity, 1) !important;
+
+    transform:
+      translate3d(
+        0,
+        var(--polish-visual-y, 0px),
+        0
+      ) !important;
+
+    box-shadow:
+      0 24px 65px
+      rgba(17,19,15,.09);
+  }
+
+
+  /* alternate evidence shrinks toward RIGHT */
+
+  .fieldwork
+  .polish-scrolly.polish-alt
+  > .evidence-visual {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+  }
+
+
+  .fieldwork
+  .polish-scrolly
+  > .evidence-visual img {
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    display: block !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    max-height: none !important;
+
+    object-fit: cover !important;
+    object-position: center center !important;
+
+    transform:
+      scale(
+        var(--polish-image-scale, 1.025)
+      ) !important;
+
+    transform-origin: center !important;
+
+    filter:
+      saturate(.93)
+      contrast(1.015) !important;
+  }
+
+
+  /* VIEW EVIDENCE stays attached to photograph */
+
+  .fieldwork
+  .polish-scrolly
+  .evidence-inspect {
+    position: absolute !important;
+
+    z-index: 8 !important;
+
+    left: 1rem !important;
+    bottom: 1rem !important;
+
+    display: inline-block !important;
+
+    width: auto !important;
+
+    margin: 0 !important;
+
+    padding:
+      .7rem .9rem !important;
+
+    color: var(--paper) !important;
+
+    background:
+      rgba(17,19,15,.82) !important;
+
+    border:
+      1px solid
+      rgba(255,255,255,.28) !important;
+
+    font:
+      .70rem/1
+      "DM Mono",
+      monospace !important;
+
+    letter-spacing: .065em !important;
+  }
+
+
+  /* ANALYSIS COLUMN */
+
+  .fieldwork
+  .polish-scrolly
+  > .evidence-copy {
+    position: relative !important;
+
+    z-index: 6 !important;
+
+    width: 40% !important;
+
+    margin-left: auto !important;
+
+    margin-top:
+      calc(-100svh + 4.4rem) !important;
+
+    padding:
+      34svh 0
+      52svh 2rem !important;
+
+    color: var(--ink) !important;
+
+    opacity:
+      var(--polish-copy-opacity, 0) !important;
+
+    pointer-events:
+      var(--polish-copy-pointer, none) !important;
+  }
+
+
+  /* opposite side on alternating frames */
+
+  .fieldwork
+  .polish-scrolly.polish-alt
+  > .evidence-copy {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+
+    padding-left: 0 !important;
+    padding-right: 2rem !important;
+  }
+
+
+  .fieldwork
+  .polish-scrolly
+  .evidence-copy figcaption {
+    position: static !important;
+
+    display: block !important;
+
+    width: auto !important;
+
+    margin:
+      0 0 1rem !important;
+
+    padding:
+      1.3rem 1.4rem !important;
+
+    color: var(--ink) !important;
+
+    background:
+      rgba(241,239,231,.97) !important;
+
+    border: 1px solid var(--line) !important;
+
+    opacity: 1 !important;
+    transform: none !important;
+
+    font:
+      400 1.03rem/1.6
+      "Manrope",
+      sans-serif !important;
+
+    box-shadow:
+      0 12px 35px
+      rgba(17,19,15,.06);
+  }
+
+
+  .fieldwork
+  .polish-scrolly
+  .evidence-copy
+  figcaption strong {
+    display: block !important;
+
+    margin-bottom: .65rem !important;
+
+    color: #315f3d !important;
+
+    font:
+      .76rem/1.4
+      "DM Mono",
+      monospace !important;
+
+    text-transform: uppercase;
+
+    letter-spacing: .06em !important;
+  }
+
+
+  .fieldwork
+  .polish-scrolly
+  .evidence-reading {
+    position: static !important;
+
+    display: block !important;
+
+    width: auto !important;
+
+    margin: 0 !important;
+
+    padding:
+      1.35rem 1.4rem !important;
+
+    color: var(--ink) !important;
+
+    background:
+      rgba(241,239,231,.97) !important;
+
+    border: 1px solid var(--line) !important;
+
+    font-size: 1rem !important;
+    line-height: 1.72 !important;
+  }
+
+
+  .fieldwork
+  .polish-scrolly
+  .evidence-reading p {
+    margin:
+      0 0 1.1rem !important;
+  }
+
+
+  /*
+     Neutralise older two-column evidence rules
+     only for new cinematic beats.
+  */
+
+  .fieldwork
+  .polish-scrolly[data-photo] {
+    grid-template-columns: none !important;
+    grid-template-rows: none !important;
+  }
+}
+
+
+/* Mobile: straightforward evidence flow */
+
+@media (max-width: 800px) {
+
+  .enquiry-grid {
+    display: block !important;
+  }
+
+  .research-questions {
+    margin-top: 3rem !important;
+  }
+
+  .fieldwork .polish-scrolly {
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    min-height: 0 !important;
+
+    margin-bottom: 4rem !important;
+  }
+
+  .fieldwork
+  .polish-scrolly
+  > .evidence-visual {
+    position: relative !important;
+
+    top: auto !important;
+
+    width: 100% !important;
+    height: auto !important;
+
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  .fieldwork
+  .polish-scrolly
+  > .evidence-visual img {
+    position: static !important;
+
+    width: 100% !important;
+    height: auto !important;
+
+    object-fit: contain !important;
+  }
+
+  .fieldwork
+  .polish-scrolly
+  > .evidence-copy {
+    width: 100% !important;
+
+    margin: 0 !important;
+
+    padding:
+      1rem 0 0 !important;
+
+    opacity: 1 !important;
+
+    pointer-events: auto !important;
+  }
+}
+
+
+/* ------------------------------------------------------------
+   12 — TENANT STUDY MICROCOPY
+   ------------------------------------------------------------ */
+
+.tenant-list strong,
+.tenant-list span {
+  font-size: .83rem !important;
+}
+
+.tenant-sources a {
+  padding: .55rem .7rem !important;
+}
+
+
+/* ------------------------------------------------------------
+   13 — SECONDARY CHART
+   ------------------------------------------------------------ */
+
+.secondary-chart .chart-bars > div {
+  grid-template-columns:
+    8rem 1fr 4.6rem !important;
+
+  gap: 1.2rem !important;
+}
+
+.secondary-chart .chart-bars span {
+  font-size: 1rem !important;
+}
+
+.secondary-chart .chart-bars strong {
+  font-size: 1rem !important;
+
+  opacity: .2;
+
+  transform:
+    translateX(-.5rem);
+
+  transition:
+    opacity .45s ease,
+    transform .55s ease;
+}
+
+.secondary-chart.chart-live
+.chart-bars strong {
+  opacity: 1;
+
+  transform: none;
+}
+
+.secondary-chart figcaption {
+  font-size: .95rem !important;
+}
+
+
+/* ------------------------------------------------------------
+   14 — NATIONAL-COMPARISON SMALL LABELS
+   ------------------------------------------------------------ */
+
+.estate-compare article > span {
+  font-size: .72rem !important;
+}
+
+.estate-compare article > a {
+  font-size: .69rem !important;
+}
+
+
+/* ------------------------------------------------------------
+   15 — REMOVE RANDOM GAP BEFORE CONCLUSION
+   ------------------------------------------------------------ */
+
+#national-test {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+#national-test .transfer-test {
+  margin-bottom: 0 !important;
+}
+
+.verdict {
+  margin-top: 0 !important;
+}
+
+
+/* ------------------------------------------------------------
+   16 — REFERENCES / DECLARATION READABILITY
+   ------------------------------------------------------------ */
+
+.ai-declaration summary,
+.image-credits summary,
+.audio-credits summary {
+  font-size: 1rem !important;
+}
+
+.ai-declaration p {
+  font-size: 1rem !important;
+  line-height: 1.72 !important;
+}
+
+
+
+/* ============================================================
+   BALANCED RESULTS STORY V2
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   SHADE / EXPOSED:
+   REAL LOCKED CINEMATIC SEQUENCE
+
+   full photo
+   -> HOLD
+   -> shrink + centred black analysis
+   -> HOLD
+   -> reopen photo
+   -> leave
+
+   Only first evidence image in each comparison is cinematic.
+   ------------------------------------------------------------ */
+
+@media (min-width:801px) {
+
+  #shade .comparison-card {
+    overflow: visible !important;
+  }
+
+
+  #shade
+  .evidence-photo.shade-scrolly[data-photo] {
+    position: relative !important;
+
+    display: block !important;
+
+    width: 100% !important;
+
+    min-height: 340svh !important;
+
+    margin:
+      3rem 0
+      8rem !important;
+
+    padding: 0 !important;
+
+    overflow: visible !important;
+
+    background: transparent !important;
+
+    grid-template-columns: none !important;
+    grid-template-rows: none !important;
+  }
+
+
+  #shade
+  .shade-stage {
+    position: sticky !important;
+
+    top: 3.45rem !important;
+
+    width: 100% !important;
+
+    height:
+      calc(100svh - 4rem) !important;
+
+    overflow: hidden !important;
+
+    background: #11130f !important;
+  }
+
+
+  /* -------------------------
+     PHOTO
+     ------------------------- */
+
+  #shade
+  .evidence-photo.shade-scrolly[data-photo]
+  .shade-stage
+  > .evidence-visual {
+    position: absolute !important;
+
+    z-index: 2 !important;
+
+    top: 0 !important;
+    bottom: 0 !important;
+
+    left: 0 !important;
+
+    width:
+      var(--shade-image-width,100%) !important;
+
+    height: 100% !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    overflow: hidden !important;
+
+    opacity:
+      var(--shade-image-opacity,1) !important;
+
+    transform:
+      translate3d(
+        0,
+        var(--shade-image-y,0),
+        0
+      ) !important;
+
+    background: #11130f !important;
+  }
+
+
+  /* second scene shrinks right */
+
+  #shade
+  .evidence-photo.shade-scrolly.shade-alt[data-photo]
+  .shade-stage
+  > .evidence-visual {
+    left: auto !important;
+    right: 0 !important;
+  }
+
+
+  /*
+     HIGH SPECIFICITY intentionally beats the old
+     evidence-visual image rule that was leaving
+     black space under the photograph.
+  */
+
+  #shade
+  .fieldwork
+  .evidence-photo.shade-scrolly[data-photo]
+  .shade-stage
+  > .evidence-visual
+  img,
+
+  .fieldwork
+  #shade
+  .evidence-photo.shade-scrolly[data-photo]
+  .shade-stage
+  > .evidence-visual
+  img {
+
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    display: block !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    min-width: 100% !important;
+    min-height: 100% !important;
+
+    max-height: none !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    object-fit: cover !important;
+    object-position: center center !important;
+
+    transform:
+      scale(
+        var(--shade-image-scale,1.025)
+      ) !important;
+  }
+
+
+  /* -------------------------
+     VIEW EVIDENCE
+     ------------------------- */
+
+  #shade
+  .shade-stage
+  .evidence-inspect {
+    position: absolute !important;
+
+    z-index: 10 !important;
+
+    left: 1rem !important;
+    bottom: 1rem !important;
+
+    display: inline-flex !important;
+
+    width: auto !important;
+
+    margin: 0 !important;
+
+    padding:
+      .72rem .92rem !important;
+
+    color: white !important;
+
+    background:
+      rgba(17,19,15,.84) !important;
+
+    border:
+      1px solid
+      rgba(255,255,255,.3) !important;
+
+    font:
+      .70rem/1
+      "DM Mono",
+      monospace !important;
+
+    letter-spacing: .07em !important;
+  }
+
+
+  /* -------------------------
+     CENTRED BLACK COPY PANEL
+     ------------------------- */
+
+  #shade
+  .shade-stage
+  > .evidence-copy {
+    position: absolute !important;
+
+    z-index: 5 !important;
+
+    top: 50% !important;
+
+    right: 0 !important;
+
+    width: 40% !important;
+
+    min-height:
+      min(52vh,32rem) !important;
+
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    justify-content: center !important;
+
+    box-sizing: border-box !important;
+
+    margin: 0 !important;
+
+    padding:
+      clamp(2rem,3.2vw,3.4rem) !important;
+
+    color: var(--paper) !important;
+
+    background:
+      rgba(17,19,15,.97) !important;
+
+    border:
+      1px solid
+      rgba(255,255,255,.18) !important;
+
+    opacity:
+      var(--shade-copy-opacity,0) !important;
+
+    transform:
+      translate3d(
+        var(--shade-copy-x,2rem),
+        -50%,
+        0
+      ) !important;
+
+    pointer-events:
+      var(--shade-copy-pointer,none) !important;
+  }
+
+
+  #shade
+  .shade-scrolly.shade-alt
+  .shade-stage
+  > .evidence-copy {
+    left: 0 !important;
+    right: auto !important;
+
+    transform:
+      translate3d(
+        calc(
+          -1 *
+          var(--shade-copy-x,2rem)
+        ),
+        -50%,
+        0
+      ) !important;
+  }
+
+
+  #shade
+  .shade-stage
+  .evidence-copy
+  figcaption {
+    position: static !important;
+
+    display: block !important;
+
+    width: auto !important;
+
+    margin: 0 0 1.5rem !important;
+
+    padding:
+      0 0 1.3rem !important;
+
+    color: white !important;
+
+    background: transparent !important;
+
+    border: 0 !important;
+
+    border-bottom:
+      1px solid
+      rgba(255,255,255,.22) !important;
+
+    box-shadow: none !important;
+
+    opacity: 1 !important;
+
+    transform: none !important;
+
+    font:
+      400 clamp(1.05rem,1.35vw,1.25rem)/1.6
+      "Manrope",
+      sans-serif !important;
+  }
+
+
+  #shade
+  .shade-stage
+  .evidence-copy
+  figcaption strong {
+    display: block !important;
+
+    margin-bottom: .75rem !important;
+
+    color: var(--acid) !important;
+
+    font:
+      .76rem/1.4
+      "DM Mono",
+      monospace !important;
+
+    letter-spacing: .07em !important;
+
+    text-transform: uppercase !important;
+  }
+
+
+  #shade
+  .shade-stage
+  .evidence-reading {
+    position: static !important;
+
+    display: block !important;
+
+    width: auto !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    color:
+      rgba(255,255,255,.78) !important;
+
+    background: transparent !important;
+
+    border: 0 !important;
+
+    font-size:
+      clamp(1rem,1.25vw,1.16rem) !important;
+
+    line-height: 1.7 !important;
+  }
+
+
+  /* Exposed Area B stays secondary, not another huge lock */
+
+  #shade
+  .comparison-card.exposed
+  > .evidence-photo:not(.shade-scrolly) {
+    width: min(68rem,90%) !important;
+
+    margin:
+      2rem auto 0 !important;
+  }
+}
+
+
+
+/* ------------------------------------------------------------
+   RAIN-GARDEN PROCESS STORY
+
+   INLET -> STONES -> PLANTED BED -> DRAIN
+
+   Original full sequence remains in HTML and is still used on
+   mobile; desktop gets this more purposeful process narrative.
+   ------------------------------------------------------------ */
+
+@media (min-width:801px) {
+
+  #rain-gardens.rain-process-ready
+  > .sequence {
+    display: none !important;
+  }
+
+
+  .rain-process-story {
+    position: relative;
+
+    min-height: 430svh;
+
+    margin:
+      4rem 0
+      7rem;
+  }
+
+
+  .rain-process-stage {
+    position: sticky;
+
+    top: 3.45rem;
+
+    height:
+      calc(100svh - 4rem);
+
+    overflow: hidden;
+
+    color: var(--paper);
+
+    background: #11130f;
+
+    border:
+      1px solid
+      rgba(255,255,255,.12);
+  }
+
+
+  /* process tracker */
+
+  .rain-process-track {
+    position: absolute;
+
+    z-index: 20;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    display: grid;
+
+    grid-template-columns:
+      repeat(4,1fr);
+
+    min-height: 4.2rem;
+
+    background:
+      rgba(17,19,15,.95);
+
+    border-bottom:
+      1px solid
+      rgba(255,255,255,.18);
+  }
+
+
+  .rain-process-track span {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: .8rem;
+
+    color:
+      rgba(255,255,255,.46);
+
+    border-right:
+      1px solid
+      rgba(255,255,255,.12);
+
+    font:
+      .70rem/1.35
+      "DM Mono",
+      monospace;
+
+    letter-spacing: .06em;
+
+    text-transform: uppercase;
+
+    transition:
+      color .3s ease,
+      background .3s ease;
+  }
+
+
+  .rain-process-track span:last-child {
+    border-right: 0;
+  }
+
+
+  .rain-process-track span.active {
+    color: var(--ink);
+
+    background: var(--acid);
+  }
+
+
+  /* stage body */
+
+  .rain-process-body {
+    position: absolute;
+
+    inset: 4.2rem 0 0;
+
+    display: grid;
+
+    grid-template-columns:
+      minmax(0,1.35fr)
+      minmax(24rem,.65fr);
+  }
+
+
+  .rain-process-images {
+    position: relative;
+
+    min-width: 0;
+
+    overflow: hidden;
+
+    background: #080907;
+  }
+
+
+  .rain-process-image {
+    position: absolute;
+
+    inset: 0;
+
+    opacity: 0;
+
+    transform:
+      scale(1.025);
+
+    transition:
+      opacity .48s ease,
+      transform .8s
+      cubic-bezier(.2,.75,.2,1);
+
+    cursor: pointer;
+  }
+
+
+  .rain-process-image.active {
+    opacity: 1;
+
+    transform:
+      scale(1);
+  }
+
+
+  .rain-process-image img {
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    max-height: none !important;
+
+    object-fit: cover !important;
+
+    transform: none !important;
+  }
+
+
+  .rain-process-view {
+    position: absolute;
+
+    z-index: 10;
+
+    left: 1rem;
+    bottom: 1rem;
+
+    padding:
+      .72rem .9rem;
+
+    color: white;
+
+    background:
+      rgba(17,19,15,.82);
+
+    border:
+      1px solid
+      rgba(255,255,255,.3);
+
+    font:
+      .69rem
+      "DM Mono",
+      monospace;
+
+    letter-spacing: .07em;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+  }
+
+
+  .rain-process-copy {
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+      var(--paper);
+  }
+
+
+  .rain-process-copy-panel {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding:
+      clamp(2rem,4vw,4rem);
+
+    color: var(--ink);
+
+    opacity: 0;
+
+    transform:
+      translateY(2rem);
+
+    transition:
+      opacity .38s ease,
+      transform .55s
+      cubic-bezier(.2,.75,.2,1);
+  }
+
+
+  .rain-process-copy-panel.active {
+    opacity: 1;
+
+    transform: none;
+  }
+
+
+  .rain-process-copy-panel .mono {
+    margin-bottom: 1.2rem;
+
+    color: #315f3d;
+
+    font-size: .76rem !important;
+  }
+
+
+  .rain-process-copy-panel h3 {
+    margin:
+      0 0 1.3rem;
+
+    font:
+      300 clamp(2.8rem,4vw,4.8rem)/.94
+      "Newsreader",
+      serif;
+
+    letter-spacing: -.035em;
+  }
+
+
+  .rain-process-copy-panel p {
+    margin: 0;
+
+    color: #666a60;
+
+    font-size:
+      clamp(1rem,1.25vw,1.15rem);
+
+    line-height: 1.72;
+  }
+
+
+  .rain-process-beats {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+  }
+
+
+  .rain-process-beat {
+    height: 100svh;
+  }
+}
+
+
+@media (max-width:800px) {
+
+  .rain-process-story {
+    display: none !important;
+  }
+
+}
+
+
+
+/* ------------------------------------------------------------
+   DAILY SYSTEMS:
+   LARGE ALTERNATING EDITORIAL ROWS
+
+   No locking. No repetitive shrink interaction.
+   ------------------------------------------------------------ */
+
+@media (min-width:801px) {
+
+  #daily-systems
+  .systems-grid {
+    display: block !important;
+  }
+
+
+  #daily-systems
+  .system-card.editorial-card {
+    display: grid !important;
+
+    grid-template-columns:
+      minmax(19rem,.72fr)
+      minmax(0,1.28fr) !important;
+
+    grid-template-rows:
+      auto auto auto 1fr !important;
+
+    column-gap:
+      clamp(3rem,6vw,7rem) !important;
+
+    row-gap: 1rem !important;
+
+    align-items: start !important;
+
+    width: 100% !important;
+
+    margin:
+      0 0
+      clamp(8rem,11vw,12rem) !important;
+
+    padding:
+      clamp(2.5rem,4vw,4.5rem)
+      0 !important;
+
+    opacity: .12;
+
+    transform:
+      translateY(4rem);
+
+    transition:
+      opacity .7s ease,
+      transform .9s
+      cubic-bezier(.2,.75,.2,1);
+  }
+
+
+  #daily-systems
+  .system-card.editorial-card.is-visible {
+    opacity: 1;
+
+    transform: none;
+  }
+
+
+  #daily-systems
+  .system-card.editorial-card
+  > .evidence-label,
+
+  #daily-systems
+  .system-card.editorial-card
+  > h3,
+
+  #daily-systems
+  .system-card.editorial-card
+  > p {
+    grid-column: 1;
+  }
+
+
+  #daily-systems
+  .system-card.editorial-card
+  > .photo-grid {
+    grid-column: 2;
+
+    grid-row: 1 / span 4;
+  }
+
+
+  /* alternate row */
+
+  #daily-systems
+  .system-card.editorial-card:nth-child(even)
+  > .evidence-label,
+
+  #daily-systems
+  .system-card.editorial-card:nth-child(even)
+  > h3,
+
+  #daily-systems
+  .system-card.editorial-card:nth-child(even)
+  > p {
+    grid-column: 2;
+  }
+
+
+  #daily-systems
+  .system-card.editorial-card:nth-child(even)
+  > .photo-grid {
+    grid-column: 1;
+
+    grid-row: 1 / span 4;
+  }
+
+
+  #daily-systems
+  .system-card.editorial-card
+  > h3 {
+    margin:
+      .8rem 0 1rem !important;
+
+    font:
+      300 clamp(3rem,4.6vw,5.6rem)/.96
+      "Newsreader",
+      serif !important;
+
+    letter-spacing:
+      -.035em !important;
+  }
+
+
+  #daily-systems
+  .system-card.editorial-card
+  > p {
+    max-width: 34rem !important;
+
+    font-size:
+      clamp(1rem,1.2vw,1.13rem) !important;
+
+    line-height: 1.72 !important;
+  }
+
+
+  #daily-systems
+  .system-card.editorial-card
+  .photo-grid {
+    display: grid !important;
+
+    grid-template-columns:
+      repeat(2,minmax(0,1fr)) !important;
+
+    gap: .8rem !important;
+  }
+
+
+  /*
+     Strip out the earlier generated side-by-side
+     "image + reading" layout INSIDE these editorial rows.
+     The system-card's visible paragraph already provides
+     the analytical explanation.
+  */
+
+  .fieldwork
+  #daily-systems
+  .system-card.editorial-card
+  .evidence-photo[data-photo] {
+    position: relative !important;
+
+    display: block !important;
+
+    grid-column: auto !important;
+
+    min-height: 0 !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+    overflow: hidden !important;
+
+    background: #11130f !important;
+  }
+
+
+  .fieldwork
+  #daily-systems
+  .system-card.editorial-card
+  .evidence-photo[data-photo]
+  .evidence-visual {
+    position: relative !important;
+
+    display: block !important;
+
+    width: 100% !important;
+
+    height: auto !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+  }
+
+
+  .fieldwork
+  #daily-systems
+  .system-card.editorial-card
+  .evidence-photo[data-photo]
+  .evidence-visual
+  img {
+    position: static !important;
+
+    display: block !important;
+
+    width: 100% !important;
+
+    height:
+      clamp(16rem,26vw,29rem) !important;
+
+    max-height: none !important;
+
+    object-fit: cover !important;
+
+    transform: none !important;
+  }
+
+
+  #daily-systems
+  .system-card.editorial-card
+  .photo-grid
+  > .evidence-photo:first-child {
+    grid-column: 1 / -1 !important;
+  }
+
+
+  #daily-systems
+  .system-card.editorial-card
+  .evidence-reading {
+    display: none !important;
+  }
+
+
+  #daily-systems
+  .system-card.editorial-card
+  figcaption {
+    position: static !important;
+
+    display: block !important;
+
+    width: auto !important;
+
+    margin: 0 !important;
+
+    padding:
+      .9rem 1rem !important;
+
+    color: var(--paper) !important;
+
+    background: #11130f !important;
+
+    border: 0 !important;
+
+    opacity: 1 !important;
+
+    transform: none !important;
+
+    font-size: .82rem !important;
+
+    line-height: 1.5 !important;
+  }
+
+
+  #daily-systems
+  .system-card.editorial-card
+  figcaption strong {
+    display: block !important;
+
+    margin-bottom: .3rem !important;
+
+    color: var(--acid) !important;
+
+    font-size: .68rem !important;
+  }
+}
+
+
+
+/* ------------------------------------------------------------
+   TENANT BOARDS:
+   KEEP STATIC + READABLE
+   ------------------------------------------------------------ */
+
+.tenant-study {
+  padding-top:
+    clamp(4rem,7vw,7rem) !important;
+
+  padding-bottom:
+    clamp(4rem,7vw,7rem) !important;
+}
+
+
+.tenant-study
+.tenant-copy
+> .evidence-label {
+  font-size: .72rem !important;
+}
+
+
+.tenant-study
+.tenant-copy
+h3 {
+  max-width: 15ch !important;
+
+  font-size:
+    clamp(2.8rem,4vw,4.8rem) !important;
+
+  line-height: .98 !important;
+}
+
+
+.tenant-study
+.tenant-copy
+> p {
+  font-size:
+    clamp(1rem,1.18vw,1.12rem) !important;
+
+  line-height: 1.7 !important;
+}
+
+
+
+/* ------------------------------------------------------------
+   GREEN MARK CHART:
+   STICKY SPOTLIGHT
+
+   pop out -> hold -> pop back
+   ------------------------------------------------------------ */
+
+@media (min-width:801px) {
+
+  .chart-story {
+    position: relative;
+
+    min-height: 205svh;
+
+    margin:
+      3rem 0
+      2rem;
+  }
+
+
+  .chart-story
+  > .secondary-chart {
+    position: sticky !important;
+
+    top: 5.2rem !important;
+
+    z-index: 4;
+
+    width: 100%;
+
+    margin: 0 !important;
+
+    transform:
+      scale(
+        var(--chart-scale,.94)
+      );
+
+    transform-origin:
+      center center;
+
+    opacity:
+      var(--chart-opacity,.7);
+
+    box-shadow:
+      0
+      calc(
+        35px *
+        var(--chart-shadow,0)
+      )
+      calc(
+        80px *
+        var(--chart-shadow,0)
+      )
+      rgba(0,0,0,.24);
+  }
+
+
+  .chart-story
+  .secondary-chart
+  meter {
+    transition: none !important;
+  }
+
+}
+
+
+@media (max-width:800px) {
+
+  .chart-story {
+    min-height: 0 !important;
+
+    margin: 0 !important;
+  }
+
+
+  .chart-story
+  > .secondary-chart {
+    position: static !important;
+
+    transform: none !important;
+
+    opacity: 1 !important;
+  }
+
+}
+
+
+/* ============================================================
+   LAYOUT REPAIR V3
+   Fix:
+   - dead evidence interaction
+   - giant white voids
+   - black caption rectangles
+   - awkward Daily Systems formatting
+   - Greenery formatting
+   ============================================================ */
+
+
+/* ============================================================
+   1. EVIDENCE AFFORDANCE
+   ============================================================ */
+
+/*
+   VIEW EVIDENCE is visually a label.
+   The actual clickable region is the whole .evidence-visual,
+   so do not let the label intercept the click.
+*/
+
+.fieldwork .evidence-inspect {
+  pointer-events: none !important;
+}
+
+
+/*
+   Keep the evidence cursor behaviour visually obvious.
+*/
+
+.fieldwork .evidence-visual {
+  cursor: pointer !important;
+}
+
+
+
+/* ============================================================
+   2. GREENERY
+   Remove old:
+       photo | giant empty text column
+
+   Replace with a clean editorial gallery.
+   ============================================================ */
+
+#greenery .photo-grid {
+  display: grid !important;
+
+  grid-template-columns:
+    repeat(12,minmax(0,1fr)) !important;
+
+  gap:
+    clamp(.8rem,1.4vw,1.25rem) !important;
+
+  align-items: stretch !important;
+}
+
+
+#greenery
+.photo-grid
+.evidence-photo[data-photo] {
+  position: relative !important;
+
+  display: block !important;
+
+  min-height: 0 !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  overflow: hidden !important;
+
+  background: #11130f !important;
+
+  grid-template-columns: none !important;
+  grid-template-rows: none !important;
+}
+
+
+/* two strong images side by side */
+
+#greenery
+.photo-grid
+.evidence-photo:nth-child(1) {
+  grid-column: 1 / span 7 !important;
+}
+
+
+#greenery
+.photo-grid
+.evidence-photo:nth-child(2) {
+  grid-column: 8 / span 5 !important;
+}
+
+
+/* wide landscape evidence underneath */
+
+#greenery
+.photo-grid
+.evidence-photo:nth-child(3) {
+  grid-column: 1 / -1 !important;
+}
+
+
+#greenery
+.photo-grid
+.evidence-photo
+> .evidence-visual {
+  position: relative !important;
+
+  display: block !important;
+
+  width: 100% !important;
+
+  height:
+    clamp(25rem,52vh,38rem) !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  overflow: hidden !important;
+}
+
+
+#greenery
+.photo-grid
+.evidence-photo:nth-child(3)
+> .evidence-visual {
+  height:
+    clamp(26rem,58vh,42rem) !important;
+}
+
+
+#greenery
+.photo-grid
+.evidence-photo
+> .evidence-visual
+img {
+  position: absolute !important;
+
+  inset: 0 !important;
+
+  display: block !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  max-height: none !important;
+
+  object-fit: cover !important;
+  object-position: center !important;
+
+  transform: none !important;
+}
+
+
+/*
+   The generated detailed reading caused the weird giant
+   vertical gaps in Greenery.
+
+   Chapter intro + visible image caption already provide
+   the required normal-scroll explanation.
+*/
+
+#greenery
+.evidence-reading {
+  display: none !important;
+}
+
+
+/*
+   Caption sits ON the image instead of consuming
+   another giant text column.
+*/
+
+#greenery
+.evidence-photo
+figcaption {
+  position: absolute !important;
+
+  z-index: 7 !important;
+
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+
+  display: block !important;
+
+  width: auto !important;
+
+  margin: 0 !important;
+
+  padding:
+    4rem 1.25rem
+    1.2rem !important;
+
+  color: white !important;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(17,19,15,0),
+      rgba(17,19,15,.87)
+    ) !important;
+
+  border: 0 !important;
+
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+
+  opacity: 1 !important;
+  transform: none !important;
+
+  font-size: .92rem !important;
+  line-height: 1.5 !important;
+
+  pointer-events: none !important;
+}
+
+
+#greenery
+.evidence-photo
+figcaption strong {
+  display: block !important;
+
+  margin-bottom: .35rem !important;
+
+  color: var(--acid) !important;
+
+  font:
+    .72rem/1.4
+    "DM Mono",
+    monospace !important;
+
+  letter-spacing: .06em !important;
+
+  text-transform: uppercase !important;
+}
+
+
+#greenery
+.evidence-inspect {
+  position: absolute !important;
+
+  z-index: 9 !important;
+
+  top: 1rem !important;
+  right: 1rem !important;
+
+  left: auto !important;
+  bottom: auto !important;
+
+  display: inline-flex !important;
+
+  padding:
+    .68rem .82rem !important;
+
+  color: white !important;
+
+  background:
+    rgba(17,19,15,.78) !important;
+
+  border:
+    1px solid
+    rgba(255,255,255,.32) !important;
+
+  font:
+    .67rem/1
+    "DM Mono",
+    monospace !important;
+}
+
+
+
+/* ============================================================
+   3. DAILY SYSTEMS — RESET THE BROKEN CARD FORMAT
+   ============================================================ */
+
+#daily-systems
+.system-card.editorial-card {
+  width: 100% !important;
+
+  min-height: 0 !important;
+
+  margin:
+    0 0
+    clamp(7rem,10vw,10rem) !important;
+
+  padding:
+    clamp(2.2rem,3.5vw,3.7rem)
+    0 !important;
+
+  border: 0 !important;
+
+  background: transparent !important;
+
+  overflow: visible !important;
+}
+
+
+#daily-systems
+.system-card.editorial-card
+> .evidence-label {
+  display: inline-flex !important;
+
+  width: auto !important;
+
+  justify-self: start !important;
+
+  padding:
+    .42rem .62rem !important;
+
+  font-size: .72rem !important;
+}
+
+
+#daily-systems
+.system-card.editorial-card
+> h3 {
+  max-width: 13ch !important;
+
+  margin:
+    1rem 0
+    1.35rem !important;
+
+  font:
+    300
+    clamp(2.8rem,4vw,4.8rem)/.98
+    "Newsreader",
+    serif !important;
+
+  letter-spacing:
+    -.035em !important;
+}
+
+
+#daily-systems
+.system-card.editorial-card
+> p {
+  max-width: 35rem !important;
+
+  margin: 0 !important;
+
+  color: var(--soft) !important;
+
+  font-size:
+    clamp(1rem,1.18vw,1.12rem) !important;
+
+  line-height: 1.72 !important;
+}
+
+
+
+/* ============================================================
+   4. SINGLE-IMAGE SYSTEMS
+   Food / Energy
+
+   clean text left + large photograph right
+   ============================================================ */
+
+@media (min-width:801px) {
+
+  #daily-systems
+  .system-card.system-one {
+    display: grid !important;
+
+    grid-template-columns:
+      minmax(20rem,.7fr)
+      minmax(0,1.3fr) !important;
+
+    grid-template-rows:
+      auto auto 1fr !important;
+
+    column-gap:
+      clamp(3rem,6vw,7rem) !important;
+
+    align-items: center !important;
+  }
+
+
+  #daily-systems
+  .system-card.system-one
+  > .evidence-label,
+
+  #daily-systems
+  .system-card.system-one
+  > h3,
+
+  #daily-systems
+  .system-card.system-one
+  > p {
+    grid-column: 1 !important;
+  }
+
+
+  #daily-systems
+  .system-card.system-one
+  > .photo-grid {
+    grid-column: 2 !important;
+
+    grid-row:
+      1 / span 3 !important;
+
+    display: block !important;
+
+    width: 100% !important;
+
+    margin: 0 !important;
+  }
+
+
+  #daily-systems
+  .system-card.system-one
+  .evidence-photo[data-photo] {
+    position: relative !important;
+
+    display: block !important;
+
+    width: 100% !important;
+
+    min-height: 0 !important;
+
+    margin: 0 !important;
+
+    overflow: hidden !important;
+
+    grid-template-columns: none !important;
+  }
+
+
+  #daily-systems
+  .system-card.system-one
+  .evidence-visual {
+    position: relative !important;
+
+    display: block !important;
+
+    width: 100% !important;
+
+    height:
+      clamp(27rem,61vh,42rem) !important;
+
+    margin: 0 !important;
+  }
+
+}
+
+
+
+/* ============================================================
+   5. TWO-IMAGE SYSTEMS
+   Underground logistics + waste
+
+   text left;
+   two images beside one another on right.
+   No 1000px-tall photo stack.
+   ============================================================ */
+
+@media (min-width:801px) {
+
+  #daily-systems
+  .system-card.system-two {
+    display: grid !important;
+
+    grid-template-columns:
+      minmax(19rem,.66fr)
+      minmax(0,1.34fr) !important;
+
+    grid-template-rows:
+      auto auto 1fr !important;
+
+    column-gap:
+      clamp(3rem,5vw,6rem) !important;
+
+    align-items: center !important;
+  }
+
+
+  #daily-systems
+  .system-card.system-two
+  > .evidence-label,
+
+  #daily-systems
+  .system-card.system-two
+  > h3,
+
+  #daily-systems
+  .system-card.system-two
+  > p {
+    grid-column: 1 !important;
+  }
+
+
+  #daily-systems
+  .system-card.system-two
+  > .photo-grid {
+    grid-column: 2 !important;
+
+    grid-row:
+      1 / span 3 !important;
+
+    display: grid !important;
+
+    grid-template-columns:
+      repeat(2,minmax(0,1fr)) !important;
+
+    gap: .8rem !important;
+
+    align-items: stretch !important;
+
+    width: 100% !important;
+  }
+
+
+  #daily-systems
+  .system-card.system-two
+  .evidence-photo[data-photo] {
+    position: relative !important;
+
+    display: block !important;
+
+    width: 100% !important;
+
+    min-height: 0 !important;
+
+    margin: 0 !important;
+
+    overflow: hidden !important;
+
+    grid-column: auto !important;
+
+    grid-template-columns: none !important;
+  }
+
+
+  #daily-systems
+  .system-card.system-two
+  .evidence-visual {
+    position: relative !important;
+
+    width: 100% !important;
+
+    height:
+      clamp(24rem,49vh,34rem) !important;
+  }
+
+}
+
+
+
+/* ============================================================
+   6. MANY-IMAGE SYSTEM
+   Cycling
+
+   intro first, then a proper full-width evidence mosaic.
+   This kills the enormous empty left half of the page.
+   ============================================================ */
+
+@media (min-width:801px) {
+
+  #daily-systems
+  .system-card.system-many {
+    display: block !important;
+  }
+
+
+  #daily-systems
+  .system-card.system-many
+  > .evidence-label {
+    margin-bottom: .8rem !important;
+  }
+
+
+  #daily-systems
+  .system-card.system-many
+  > h3 {
+    max-width: 16ch !important;
+  }
+
+
+  #daily-systems
+  .system-card.system-many
+  > p {
+    max-width: 52rem !important;
+
+    margin-bottom:
+      2.8rem !important;
+  }
+
+
+  #daily-systems
+  .system-card.system-many
+  > .photo-grid {
+    display: grid !important;
+
+    grid-template-columns:
+      repeat(12,minmax(0,1fr)) !important;
+
+    gap: .8rem !important;
+
+    width: 100% !important;
+  }
+
+
+  #daily-systems
+  .system-card.system-many
+  .evidence-photo[data-photo] {
+    position: relative !important;
+
+    display: block !important;
+
+    min-height: 0 !important;
+
+    margin: 0 !important;
+
+    overflow: hidden !important;
+
+    grid-template-columns: none !important;
+  }
+
+
+  /*
+     first row:
+     large principal rack photo + one support image
+  */
+
+  #daily-systems
+  .system-card.system-many
+  .evidence-photo:nth-child(1) {
+    grid-column:
+      1 / span 8 !important;
+  }
+
+
+  #daily-systems
+  .system-card.system-many
+  .evidence-photo:nth-child(2) {
+    grid-column:
+      9 / span 4 !important;
+  }
+
+
+  /*
+     second row:
+     remaining three supporting frames
+  */
+
+  #daily-systems
+  .system-card.system-many
+  .evidence-photo:nth-child(3) {
+    grid-column:
+      1 / span 4 !important;
+  }
+
+
+  #daily-systems
+  .system-card.system-many
+  .evidence-photo:nth-child(4) {
+    grid-column:
+      5 / span 4 !important;
+  }
+
+
+  #daily-systems
+  .system-card.system-many
+  .evidence-photo:nth-child(5) {
+    grid-column:
+      9 / span 4 !important;
+  }
+
+
+  #daily-systems
+  .system-card.system-many
+  .evidence-visual {
+    position: relative !important;
+
+    width: 100% !important;
+
+    height:
+      clamp(20rem,37vh,28rem) !important;
+  }
+
+
+  #daily-systems
+  .system-card.system-many
+  .evidence-photo:nth-child(1)
+  .evidence-visual {
+    height:
+      clamp(24rem,49vh,35rem) !important;
+  }
+
+
+  #daily-systems
+  .system-card.system-many
+  .evidence-photo:nth-child(2)
+  .evidence-visual {
+    height:
+      clamp(24rem,49vh,35rem) !important;
+  }
+
+}
+
+
+
+/* ============================================================
+   7. DAILY SYSTEM PHOTOGRAPHS
+   Eliminate separate black rectangles.
+
+   Caption becomes an OVERLAY within image.
+   ============================================================ */
+
+#daily-systems
+.system-card.editorial-card
+.evidence-photo[data-photo]
+> .evidence-visual {
+  overflow: hidden !important;
+
+  background: #11130f !important;
+}
+
+
+#daily-systems
+.system-card.editorial-card
+.evidence-photo[data-photo]
+> .evidence-visual
+img {
+  position: absolute !important;
+
+  inset: 0 !important;
+
+  display: block !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  max-height: none !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  object-fit: cover !important;
+  object-position: center !important;
+
+  transform: none !important;
+}
+
+
+#daily-systems
+.system-card.editorial-card
+.evidence-reading {
+  display: none !important;
+}
+
+
+#daily-systems
+.system-card.editorial-card
+figcaption {
+  position: absolute !important;
+
+  z-index: 7 !important;
+
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+
+  display: block !important;
+
+  width: auto !important;
+
+  margin: 0 !important;
+
+  padding:
+    3.8rem 1rem
+    1rem !important;
+
+  color: white !important;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(17,19,15,0),
+      rgba(17,19,15,.86)
+    ) !important;
+
+  border: 0 !important;
+
+  box-shadow: none !important;
+
+  opacity: 1 !important;
+
+  transform: none !important;
+
+  font-size: .86rem !important;
+  line-height: 1.45 !important;
+
+  pointer-events: none !important;
+}
+
+
+#daily-systems
+.system-card.editorial-card
+figcaption strong {
+  display: block !important;
+
+  margin-bottom: .3rem !important;
+
+  color: var(--acid) !important;
+
+  font:
+    .68rem/1.35
+    "DM Mono",
+    monospace !important;
+
+  letter-spacing: .055em !important;
+}
+
+
+#daily-systems
+.system-card.editorial-card
+.evidence-inspect {
+  position: absolute !important;
+
+  z-index: 9 !important;
+
+  top: 1rem !important;
+  right: 1rem !important;
+
+  left: auto !important;
+  bottom: auto !important;
+
+  display: inline-flex !important;
+
+  padding:
+    .68rem .82rem !important;
+
+  color: white !important;
+
+  background:
+    rgba(17,19,15,.78) !important;
+
+  border:
+    1px solid
+    rgba(255,255,255,.32) !important;
+
+  font:
+    .67rem/1
+    "DM Mono",
+    monospace !important;
+}
+
+
+
+/* ============================================================
+   8. RAIN PROCESS WORDING / SCALE
+   Slightly calmer so it doesn't wrap ridiculously.
+   ============================================================ */
+
+.rain-process-copy-panel h3 {
+  max-width: 11ch !important;
+
+  font-size:
+    clamp(2.55rem,3.5vw,4.1rem) !important;
+
+  line-height: .97 !important;
+}
+
+
+.rain-process-copy-panel p {
+  max-width: 31rem !important;
+
+  font-size:
+    clamp(1rem,1.16vw,1.1rem) !important;
+
+  line-height: 1.7 !important;
+}
+
+
+
+/* ============================================================
+   9. MOBILE
+   ============================================================ */
+
+@media (max-width:800px) {
+
+  #greenery .photo-grid {
+    display: block !important;
+  }
+
+
+  #greenery
+  .photo-grid
+  .evidence-photo {
+    margin-bottom:
+      1rem !important;
+  }
+
+
+  #greenery
+  .photo-grid
+  .evidence-photo
+  > .evidence-visual {
+    height:
+      min(68svh,34rem) !important;
+  }
+
+
+  #daily-systems
+  .system-card.editorial-card {
+    display: block !important;
+  }
+
+
+  #daily-systems
+  .system-card.editorial-card
+  > .photo-grid {
+    display: grid !important;
+
+    grid-template-columns:
+      1fr !important;
+
+    gap: 1rem !important;
+
+    margin-top: 2rem !important;
+  }
+
+
+  #daily-systems
+  .system-card.editorial-card
+  .evidence-photo {
+    grid-column:
+      1 !important;
+  }
+
+
+  #daily-systems
+  .system-card.editorial-card
+  .evidence-visual {
+    height:
+      min(67svh,34rem) !important;
+  }
+
+}
+
