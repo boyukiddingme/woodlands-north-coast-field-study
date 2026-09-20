@@ -392,7 +392,7 @@
   document.getElementById('musicNext').addEventListener('click', () => select(index + 1));
   volume.addEventListener('input', () => { level = Number(volume.value) / 100; setVolume(); try { sessionStorage.setItem('wnc-music-volume-v3', String(level)); } catch {} });
   window.addEventListener('pagehide', () => { wanted = false; ++operation; clearInterval(fadeTimer); audio.pause(); render(); });
-  fetch('/audio/playlist.json').then(response => { if (!response.ok) throw Error('Playlist unavailable'); return response.json(); }).then(data => {
+  fetch('audio/playlist.json').then(response => { if (!response.ok) throw Error('Playlist unavailable'); return response.json(); }).then(data => {
     tracks = data;
     tracks.forEach((track, i) => {
       const li = document.createElement('li'), button = document.createElement('button'), number = document.createElement('span'), text = document.createElement('span'), composer = document.createElement('small');
