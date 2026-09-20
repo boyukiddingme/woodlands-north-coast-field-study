@@ -1,0 +1,310 @@
+/* ============================================================
+   INLINE EVIDENCE ANNOTATIONS V1
+
+   Visible analytical markup on the normal page.
+   Full modal annotations remain unchanged.
+   ============================================================ */
+
+.evidence-visual,
+.v6-media {
+  position: relative;
+}
+
+/*
+   rain-process-image already has position:absolute
+   in site-polish.css. Do NOT override it here.
+*/
+.rain-process-image {
+  position: absolute;
+}
+
+
+/*
+   The existing small numbered inline SVG markers are replaced
+   visually by the clearer callouts below.
+
+   This does NOT affect the modal annotation SVG.
+*/
+.evidence-photo
+.evidence-markers {
+  display: none !important;
+}
+
+.evidence-photo
+.evidence-reading
+> ol {
+  display: none !important;
+}
+
+
+/* Main overlay */
+.inline-evidence-annotations {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 20;
+
+  pointer-events: none;
+
+  overflow: hidden;
+}
+
+
+/* ============================================================
+   PRECISE POINT CALLOUT
+   ============================================================ */
+
+.inline-evidence-point {
+  position: absolute;
+
+  left:
+    calc(var(--x) * 1%);
+
+  top:
+    calc(var(--y) * 1%);
+
+  width: 0;
+  height: 0;
+}
+
+
+.inline-evidence-dot {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 1rem;
+  height: 1rem;
+
+  transform:
+    translate(-50%,-50%);
+
+  border:
+    2px solid
+    #c8ff3d;
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(16,19,13,.88);
+
+  box-shadow:
+    0 0 0 4px
+    rgba(200,255,61,.16);
+}
+
+
+.inline-evidence-label {
+  position: absolute;
+
+  top: 0;
+
+  min-width:
+    max-content;
+
+  max-width:
+    min(16rem,34vw);
+
+  padding:
+    .52rem .66rem;
+
+  color:
+    #f2f0e7;
+
+  background:
+    rgba(15,18,13,.88);
+
+  border:
+    1px solid
+    rgba(200,255,61,.55);
+
+  backdrop-filter:
+    blur(7px);
+
+  -webkit-backdrop-filter:
+    blur(7px);
+
+  font:
+    600 .63rem/1.32
+    "DM Mono",
+    monospace;
+
+  letter-spacing:
+    .055em;
+
+  text-transform:
+    uppercase;
+
+  box-shadow:
+    0 .35rem 1rem
+    rgba(0,0,0,.18);
+}
+
+
+.inline-evidence-point.to-right
+.inline-evidence-label {
+  left: 1rem;
+
+  transform:
+    translateY(-50%);
+}
+
+
+.inline-evidence-point.to-left
+.inline-evidence-label {
+  right: 1rem;
+
+  transform:
+    translateY(-50%);
+}
+
+
+/* Small line between target and label */
+.inline-evidence-point::after {
+  content: "";
+
+  position: absolute;
+
+  top: -1px;
+
+  width: 1rem;
+
+  height: 1px;
+
+  background:
+    #c8ff3d;
+
+  opacity: .8;
+}
+
+
+.inline-evidence-point.to-right::after {
+  left: .45rem;
+}
+
+
+.inline-evidence-point.to-left::after {
+  right: .45rem;
+}
+
+
+/* ============================================================
+   ANALYTICAL NOTE
+   Used when a precise point has not been verified.
+   ============================================================ */
+
+.inline-evidence-note {
+  position: absolute;
+
+  left: 1rem;
+  top: 1rem;
+
+  max-width:
+    min(20rem,46%);
+
+  padding:
+    .72rem .82rem;
+
+  color:
+    #f2f0e7;
+
+  background:
+    rgba(15,18,13,.84);
+
+  border-left:
+    3px solid
+    #c8ff3d;
+
+  backdrop-filter:
+    blur(8px);
+
+  -webkit-backdrop-filter:
+    blur(8px);
+
+  font:
+    500 .67rem/1.42
+    "DM Mono",
+    monospace;
+
+  letter-spacing:
+    .025em;
+
+  box-shadow:
+    0 .5rem 1.4rem
+    rgba(0,0,0,.16);
+}
+
+
+.inline-evidence-note::before {
+  content:
+    "FIELD EVIDENCE";
+
+  display: block;
+
+  margin-bottom:
+    .3rem;
+
+  color:
+    #c8ff3d;
+
+  font-size:
+    .56rem;
+
+  letter-spacing:
+    .10em;
+}
+
+
+/*
+   Keep the rain-process button above annotations.
+*/
+.rain-process-view {
+  z-index: 30 !important;
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width:800px) {
+
+  .inline-evidence-note {
+    left: .55rem;
+    top: .55rem;
+
+    max-width:
+      calc(100% - 1.1rem);
+
+    padding:
+      .55rem .62rem;
+
+    font-size:
+      .58rem;
+  }
+
+
+  .inline-evidence-label {
+    max-width:
+      9.5rem;
+
+    min-width:
+      0;
+
+    white-space:
+      normal;
+
+    font-size:
+      .54rem;
+  }
+
+
+  .inline-evidence-dot {
+    width: .8rem;
+    height: .8rem;
+  }
+
+}
