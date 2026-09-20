@@ -1391,6 +1391,10 @@
       cubic-bezier(.2,.75,.2,1);
 
     cursor: pointer;
+
+    /* Only the currently visible rain-process image
+       may receive hover/click events. */
+    pointer-events: none;
   }
 
 
@@ -1399,6 +1403,8 @@
 
     transform:
       scale(1);
+
+    pointer-events: auto;
   }
 
 
